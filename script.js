@@ -10,6 +10,12 @@ const soundRows = {
         sound6: new Audio("Audio/Elderly_DRUMS.mp3"),
         sound7: new Audio("Audio/Elderly_INSTRUMENTS.mp3"),
         sound8: new Audio("Audio/Elderly_MELODY.mp3")
+    },
+    row3: {
+        sound9: new Audio("Audio/Elderly_BASS.mp3"),
+        sound10: new Audio("Audio/Elderly_DRUMS.mp3"),
+        sound11: new Audio("Audio/Elderly_INSTRUMENTS.mp3"),
+        sound12: new Audio("Audio/Elderly_MELODY.mp3")
     }
 };
 
