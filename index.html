@@ -8,6 +8,29 @@
         body { font-family: Arial, sans-serif; text-align: center; }
         button { margin: 10px; padding: 10px 20px; font-size: 16px; }
         #soundboard { display: none; } /* Hide the soundboard initially */
+        .sound-container {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 30px;
+    position: relative;
+}
+
+.volume-control, .pan-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+.volume-slider, .pan-slider {
+    width: 100px;
+    margin: 0 5px;
+}
+
+span {
+    font-size: 12px;
+}
     </style>
 </head>
 <body>
@@ -17,26 +40,185 @@
 
     <div id="soundboard">
         <div>
-            <h2>ACT 1</h2>
-            <button onclick="toggleSound('row1', 'sound1')">Toggle Sound 1</button>
-            <button onclick="toggleSound('row1', 'sound2')">Toggle Sound 2</button>
-            <button onclick="toggleSound('row1', 'sound3')">Toggle Sound 3</button>
-            <button onclick="toggleSound('row1', 'sound4')">Toggle Sound 4</button>
+            <h2>ACT 1 
+                <button id="btn-row1" onclick="handleRowButton('row1')">Start</button>
+                <button onclick="stopAllInRow('row1')">Stop All</button>
+            </h2>
+            
+            <div class="sound-container"> <!-- Första fågel -->
+                <button onclick="toggleSound('row1', 'sound1_1')">Toggle Animal_1</button>                
+                <div class="volume-control">
+                    <span>-</span>
+                    <input type="range" min="0" max="1" step="0.01" value="1"
+                           class="volume-slider" oninput="updateVolume('row1', 'sound1_1', this.value)">
+                    <span>+</span>
+                </div>
+                <div class="pan-control">
+                    <span>L</span>
+                    <input type="range" min="-1" max="1" step="0.01" value="0.3"
+                    class="pan-slider" oninput="updatePan('row1', 'sound1_1', this.value)">
+                    <span>R</span>
+                </div>                
+            </div>
+
+            <div class="sound-container"> <!-- Andra Fågel -->
+                <button onclick="toggleSound('row1', 'sound1_2')">Toggle Animal_2</button>                
+                <div class="volume-control">
+                    <span>-</span>
+                    <input type="range" min="0" max="1" step="0.01" value="1"
+                           class="volume-slider" oninput="updateVolume('row1', 'sound1_2', this.value)">
+                    <span>+</span>
+                </div>
+                <div class="pan-control">
+                    <span>L</span>
+                    <input type="range" min="-1" max="1" step="0.01" value="-0.4"
+                    class="pan-slider" oninput="updatePan('row1', 'sound1_2', this.value)">
+                    <span>R</span>
+                </div>                
+            </div>
+
+            <div class="sound-container"> <!-- Syrsor -->
+                <button onclick="toggleSound('row1', 'sound1_3')">Toggle Animal_3</button>                
+                <div class="volume-control">
+                    <span>-</span>
+                    <input type="range" min="0" max="1" step="0.01" value="0.5"
+                           class="volume-slider" oninput="updateVolume('row1', 'sound1_3', this.value)">
+                    <span>+</span>
+                </div>
+                <div class="pan-control">
+                    <span>L</span>
+                    <input type="range" min="-1" max="1" step="0.01" value="0.7"
+                    class="pan-slider" oninput="updatePan('row1', 'sound1_3', this.value)">
+                    <span>R</span>
+                </div>                
+            </div>
+
+            <div class="sound-container"> <!-- Fjäril -->
+                <button onclick="toggleSound('row1', 'sound1_4')">Toggle Butterfly</button>                
+                <div class="volume-control">
+                    <span>-</span>
+                    <input type="range" min="0" max="1" step="0.01" value="1"
+                           class="volume-slider" oninput="updateVolume('row1', 'sound1_4', this.value)">
+                    <span>+</span>
+                </div>
+                <div class="pan-control">
+                    <span>L</span>
+                    <input type="range" min="-1" max="1" step="0.01" value="0"
+                    class="pan-slider" oninput="updatePan('row1', 'sound1_4', this.value)">
+                    <span>R</span>
+                </div>                
+            </div>
+
+            <div class="sound-container"> <!-- Eld -->
+                <button onclick="toggleSound('row1', 'sound1_5')">Toggle Fire</button>                
+                <div class="volume-control">
+                    <span>-</span>
+                    <input type="range" min="0" max="1" step="0.01" value="0.8"
+                           class="volume-slider" oninput="updateVolume('row1', 'sound1_5', this.value)">
+                    <span>+</span>
+                </div>
+                <div class="pan-control">
+                    <span>L</span>
+                    <input type="range" min="-1" max="1" step="0.01" value="0.8"
+                    class="pan-slider" oninput="updatePan('row1', 'sound1_5', this.value)">
+                    <span>R</span>
+                </div>                
+            </div>
+
+            <div class="sound-container"> <!-- Bakgrund -->
+                <button onclick="toggleSound('row1', 'sound1_6')">Toggle Soundbed</button>                
+                <div class="volume-control">
+                    <span>-</span>
+                    <input type="range" min="0" max="1" step="0.01" value="1"
+                           class="volume-slider" oninput="updateVolume('row1', 'sound1_6', this.value)">
+                    <span>+</span>
+                </div>
+                <div class="pan-control">
+                    <span>L</span>
+                    <input type="range" min="-1" max="1" step="0.01" value="0.2"
+                    class="pan-slider" oninput="updatePan('row1', 'sound1_6', this.value)">
+                    <span>R</span>
+                </div>                
+            </div>
+
+            <div class="sound-container"> <!-- Vatten -->
+                <button onclick="toggleSound('row1', 'sound1_7')">Toggle Stream</button>                
+                <div class="volume-control">
+                    <span>-</span>
+                    <input type="range" min="0" max="1" step="0.01" value="0.3"
+                           class="volume-slider" oninput="updateVolume('row1', 'sound1_7', this.value)">
+                    <span>+</span>
+                </div>
+                <div class="pan-control">
+                    <span>L</span>
+                    <input type="range" min="-1" max="1" step="0.01" value="-0.7"
+                    class="pan-slider" oninput="updatePan('row1', 'sound1_7', this.value)">
+                    <span>R</span>
+                </div>                
+            </div>
+
+            <div class="sound-container"> <!-- Vind i öronen -->
+                <button onclick="toggleSound('row1', 'sound1_8')">Toggle Wind_Ears</button>                
+                <div class="volume-control">
+                    <span>-</span>
+                    <input type="range" min="0" max="1" step="0.01" value="1"
+                           class="volume-slider" oninput="updateVolume('row1', 'sound1_8', this.value)">
+                    <span>+</span>
+                </div>
+                              
+            </div>
+
+            <div class="sound-container"> <!-- Vind hög frekvens -->
+                <button onclick="toggleSound('row1', 'sound1_9')">Toggle Wind_High</button>                
+                <div class="volume-control">
+                    <span>-</span>
+                    <input type="range" min="0" max="1" step="0.01" value="0.6"
+                           class="volume-slider" oninput="updateVolume('row1', 'sound1_9', this.value)">
+                    <span>+</span>
+                </div>
+                <div class="pan-control">
+                    <span>L</span>
+                    <input type="range" min="-1" max="1" step="0.01" value="0.5"
+                    class="pan-slider" oninput="updatePan('row1', 'sound1_9', this.value)">
+                    <span>R</span>
+                </div>                
+            </div>
+
+            <div class="sound-container"> <!-- Vind låg frekvens -->
+                <button onclick="toggleSound('row1', 'sound1_10')">Toggle Wind_Low</button>                
+                <div class="volume-control">
+                    <span>-</span>
+                    <input type="range" min="0" max="1" step="0.01" value="0.8"
+                           class="volume-slider" oninput="updateVolume('row1', 'sound1_10', this.value)">
+                    <span>+</span>
+                </div>
+                <div class="pan-control">
+                    <span>L</span>
+                    <input type="range" min="-1" max="1" step="0.01" value="-0.5"
+                    class="pan-slider" oninput="updatePan('row1', 'sound1_10', this.value)">
+                    <span>R</span>
+                </div>                
+            </div>
         </div>
         <div>
-            <h2>ACT 2</h2>
-            <button onclick="toggleSound('row2', 'sound5')">Toggle Sound 5</button>
-            <button onclick="toggleSound('row2', 'sound6')">Toggle Sound 6</button>
-            <button onclick="toggleSound('row2', 'sound7')">Toggle Sound 7</button>
-            <button onclick="toggleSound('row2', 'sound8')">Toggle Sound 8</button>
+            <h2>ACT 2 
+                <button id="btn-row2" onclick="handleRowButton('row2')">Start</button>
+                <button onclick="stopAllInRow('row2')">Stop All</button>
+              </h2>
+            <button onclick="toggleSound('row2', 'sound2_1')">Toggle Sound 5</button>
+            <button onclick="toggleSound('row2', 'sound2_2')">Toggle Sound 6</button>
+            <button onclick="toggleSound('row2', 'sound2_3')">Toggle Sound 7</button>
+            <button onclick="toggleSound('row2', 'sound2_4')">Toggle Sound 8</button>
         </div>
         <div>
-            <h2>ACT 3</h2>
-            <button onclick="toggleSound('row3', 'sound9')">Toggle Wind</button>
-            <button onclick="toggleSound('row3', 'sound10')">Toggle Fire</button>
-            <button onclick="toggleSound('row3', 'sound11')">Toggle Melody</button>
-            <button onclick="toggleSound('row3', 'sound12')">Toggle Animals</button>
-            <button onclick="toggleSound('row3', 'sound13')">Toggle Butterfly</button>
+            <h2>ACT 3 
+                <button id="btn-row3" onclick="handleRowButton('row3')">Start</button>
+                <button onclick="stopAllInRow('row3')">Stop All</button>
+              </h2>
+            <button onclick="toggleSound('row3', 'sound3_1')">Toggle Sound 9</button>
+            <button onclick="toggleSound('row3', 'sound3_2')">Toggle Sound 10</button>
+            <button onclick="toggleSound('row3', 'sound3_3')">Toggle Sound 11</button>
+            <button onclick="toggleSound('row3', 'sound3_4')">Toggle Sound 12</button>
         </div>
     </div>
 
