@@ -6,14 +6,22 @@
     <title>Soundboard</title>
     <style>
         body { font-family: Arial, sans-serif; text-align: center; }
-        button { margin: 10px; padding: 10px 20px; font-size: 16px; }
+        button { margin: 0px; padding: 10px 30px; font-size: 14px; }
         #soundboard { display: none; } /* Hide the soundboard initially */
         .sound-container {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
-    margin: 10px 30px;
+    margin: 5px 10px;
     position: relative;
+}
+
+button {
+    margin: 0px;
+    padding: 10px 20px;
+    font-size: 14px;
+    width: 120px; /* Set this to your preferred standard size */
+    text-align: center;
 }
 
 .volume-control, .pan-control {
@@ -24,16 +32,25 @@
 }
 
 .volume-slider, .pan-slider {
-    width: 100px;
+    width: 60px;
     margin: 0 5px;
 }
 
 span {
-    font-size: 12px;
+    font-size: 10px;
 }
+
+.container {
+  max-width: 800px;       /* Or whatever width fits your layout */
+  margin: 0 auto;           /* Centers the container horizontally */
+  padding: 20px;            /* Optional: some space inside the container */
+  box-sizing: border-box;  /* Ensures padding doesn’t add to total width */
+}
+
     </style>
 </head>
 <body>
+<div class="container">
 
     <h1>Soundboard</h1>
     <button id="startButton">Start</button>
@@ -46,156 +63,166 @@ span {
             </h2>
             
             <div class="sound-container"> <!-- Första fågel -->
-                <button onclick="toggleSound('row1', 'sound1_1')">Toggle Animal_1</button>                
+                <button onclick="toggleSound('row1', 'sound1_1')">Bird_1</button>
+                <button onclick="downloadSound('Audio/Act_1/TME_Act1 Edit 1 Export 1 Bird_1 Render 0.mp3')">Download</button>                
                 <div class="volume-control">
                     <span>-</span>
-                    <input type="range" min="0" max="1" step="0.01" value="1"
-                           class="volume-slider" oninput="updateVolume('row1', 'sound1_1', this.value)">
+                    <input type="range" min="0" max="1" step="0.01" value="0.8"
+                           class="volume-slider" data-row="row1" data-sound="sound1_1" data-type="volume"
+                           oninput="updateVolume('row1', 'sound1_1', this.value)">
                     <span>+</span>
                 </div>
                 <div class="pan-control">
                     <span>L</span>
-                    <input type="range" min="-1" max="1" step="0.01" value="0.3"
-                    class="pan-slider" oninput="updatePan('row1', 'sound1_1', this.value)">
+                    <input type="range" min="-1" max="1" step="0.01" value="0.6"
+                    class="pan-slider" data-row="row1" data-sound="sound1_1" data-type="pan"
+                    oninput="updatePan('row1', 'sound1_1', this.value)">
                     <span>R</span>
                 </div>                
             </div>
 
             <div class="sound-container"> <!-- Andra Fågel -->
-                <button onclick="toggleSound('row1', 'sound1_2')">Toggle Animal_2</button>                
+                <button onclick="toggleSound('row1', 'sound1_2')">Bird_2</button>
+                <button onclick="downloadSound('Audio/Act_1/TME_Act1 Edit 1 Export 1 Bird_2 Render 0.mp3')">Download</button>                
                 <div class="volume-control">
                     <span>-</span>
-                    <input type="range" min="0" max="1" step="0.01" value="1"
-                           class="volume-slider" oninput="updateVolume('row1', 'sound1_2', this.value)">
+                    <input type="range" min="0" max="1" step="0.01" value="0.7"
+                           class="volume-slider" data-row="row1" data-sound="sound1_2" data-type="volume"
+                           oninput="updateVolume('row1', 'sound1_2', this.value)">
                     <span>+</span>
                 </div>
                 <div class="pan-control">
                     <span>L</span>
-                    <input type="range" min="-1" max="1" step="0.01" value="-0.4"
-                    class="pan-slider" oninput="updatePan('row1', 'sound1_2', this.value)">
+                    <input type="range" min="-1" max="1" step="0.01" value="-0.3"
+                    class="pan-slider" data-row="row1" data-sound="sound1_2" data-type="pan"
+                    oninput="updatePan('row1', 'sound1_2', this.value)">
                     <span>R</span>
                 </div>                
             </div>
 
             <div class="sound-container"> <!-- Syrsor -->
-                <button onclick="toggleSound('row1', 'sound1_3')">Toggle Animal_3</button>                
+                <button onclick="toggleSound('row1', 'sound1_3')">Crickets</button>
+                <button onclick="downloadSound('Audio/Act_1/TME_Act1 Edit 1 Export 1 Crickets Render 0.mp3')">Download</button>                
                 <div class="volume-control">
                     <span>-</span>
-                    <input type="range" min="0" max="1" step="0.01" value="0.5"
-                           class="volume-slider" oninput="updateVolume('row1', 'sound1_3', this.value)">
-                    <span>+</span>
-                </div>
-                <div class="pan-control">
-                    <span>L</span>
-                    <input type="range" min="-1" max="1" step="0.01" value="0.7"
-                    class="pan-slider" oninput="updatePan('row1', 'sound1_3', this.value)">
-                    <span>R</span>
-                </div>                
-            </div>
-
-            <div class="sound-container"> <!-- Fjäril -->
-                <button onclick="toggleSound('row1', 'sound1_4')">Toggle Butterfly</button>                
-                <div class="volume-control">
-                    <span>-</span>
-                    <input type="range" min="0" max="1" step="0.01" value="1"
-                           class="volume-slider" oninput="updateVolume('row1', 'sound1_4', this.value)">
-                    <span>+</span>
-                </div>
-                <div class="pan-control">
-                    <span>L</span>
-                    <input type="range" min="-1" max="1" step="0.01" value="0"
-                    class="pan-slider" oninput="updatePan('row1', 'sound1_4', this.value)">
-                    <span>R</span>
-                </div>                
-            </div>
-
-            <div class="sound-container"> <!-- Eld -->
-                <button onclick="toggleSound('row1', 'sound1_5')">Toggle Fire</button>                
-                <div class="volume-control">
-                    <span>-</span>
-                    <input type="range" min="0" max="1" step="0.01" value="0.8"
-                           class="volume-slider" oninput="updateVolume('row1', 'sound1_5', this.value)">
+                    <input type="range" min="0" max="1" step="0.01" value="0.4"
+                           class="volume-slider" data-row="row1" data-sound="sound1_3" data-type="volume"
+                           oninput="updateVolume('row1', 'sound1_3', this.value)">
                     <span>+</span>
                 </div>
                 <div class="pan-control">
                     <span>L</span>
                     <input type="range" min="-1" max="1" step="0.01" value="0.8"
-                    class="pan-slider" oninput="updatePan('row1', 'sound1_5', this.value)">
+                    class="pan-slider" data-row="row1" data-sound="sound1_3" data-type="pan"
+                    oninput="updatePan('row1', 'sound1_3', this.value)">
                     <span>R</span>
                 </div>                
             </div>
 
-            <div class="sound-container"> <!-- Bakgrund -->
-                <button onclick="toggleSound('row1', 'sound1_6')">Toggle Soundbed</button>                
+            <div class="sound-container"> <!-- Fjäril -->
+                <button onclick="toggleSound('row1', 'sound1_4')">Butterfly</button>
+                <button onclick="downloadSound('Audio/Act_1/TME_Act1 Edit 1 Export 1 Butterfly Render 0.mp3')">Download</button>                
                 <div class="volume-control">
                     <span>-</span>
                     <input type="range" min="0" max="1" step="0.01" value="1"
-                           class="volume-slider" oninput="updateVolume('row1', 'sound1_6', this.value)">
+                           class="volume-slider" data-row="row1" data-sound="sound1_4" data-type="volume"
+                           oninput="updateVolume('row1', 'sound1_4', this.value)">
                     <span>+</span>
                 </div>
                 <div class="pan-control">
                     <span>L</span>
-                    <input type="range" min="-1" max="1" step="0.01" value="0.2"
-                    class="pan-slider" oninput="updatePan('row1', 'sound1_6', this.value)">
+                    <input type="range" min="-1" max="1" step="0.01" value="0"
+                    class="pan-slider" data-row="row1" data-sound="sound1_4" data-type="pan"
+                    oninput="updatePan('row1', 'sound1_4', this.value)">
                     <span>R</span>
                 </div>                
             </div>
 
-            <div class="sound-container"> <!-- Vatten -->
-                <button onclick="toggleSound('row1', 'sound1_7')">Toggle Stream</button>                
+            <div class="sound-container"> <!-- Eld -->
+                <button onclick="toggleSound('row1', 'sound1_5')">Fire</button>
+                <button onclick="downloadSound('Audio/Act_1/TME_Act1 Edit 1 Export 1 Fire Render 0.mp3')">Download</button>                
                 <div class="volume-control">
                     <span>-</span>
-                    <input type="range" min="0" max="1" step="0.01" value="0.3"
-                           class="volume-slider" oninput="updateVolume('row1', 'sound1_7', this.value)">
+                    <input type="range" min="0" max="1" step="0.01" value="0.8"
+                           class="volume-slider" data-row="row1" data-sound="sound1_5" data-type="volume"
+                           oninput="updateVolume('row1', 'sound1_5', this.value)">
                     <span>+</span>
                 </div>
                 <div class="pan-control">
                     <span>L</span>
                     <input type="range" min="-1" max="1" step="0.01" value="-0.7"
-                    class="pan-slider" oninput="updatePan('row1', 'sound1_7', this.value)">
+                    class="pan-slider" data-row="row1" data-sound="sound1_5" data-type="pan"
+                    oninput="updatePan('row1', 'sound1_5', this.value)">
+                    <span>R</span>
+                </div>                
+            </div>
+
+            <div class="sound-container"> <!-- Vatten -->
+                <button onclick="toggleSound('row1', 'sound1_7')">Stream</button>
+                <button onclick="downloadSound('Audio/Act_1/TME_Act1 Edit 1 Export 1 Stream Render 0.mp3')">Download</button>                
+                <div class="volume-control">
+                    <span>-</span>
+                    <input type="range" min="0" max="1" step="0.01" value="0.3"
+                           class="volume-slider" data-row="row1" data-sound="sound1_7" data-type="volume"
+                           oninput="updateVolume('row1', 'sound1_7', this.value)">
+                    <span>+</span>
+                </div>
+                <div class="pan-control">
+                    <span>L</span>
+                    <input type="range" min="-1" max="1" step="0.01" value="0.7"
+                    class="pan-slider" data-row="row1" data-sound="sound1_7" data-type="pan"
+                    oninput="updatePan('row1', 'sound1_7', this.value)">
                     <span>R</span>
                 </div>                
             </div>
 
             <div class="sound-container"> <!-- Vind i öronen -->
-                <button onclick="toggleSound('row1', 'sound1_8')">Toggle Wind_Ears</button>                
+                <button onclick="toggleSound('row1', 'sound1_8')">Wind_Ears</button>
+                <button onclick="downloadSound('Audio/Act_1/TME_Act1 Edit 1 Export 1 Wind_Ears Render 0.mp3')">Download</button>                
                 <div class="volume-control">
                     <span>-</span>
                     <input type="range" min="0" max="1" step="0.01" value="1"
-                           class="volume-slider" oninput="updateVolume('row1', 'sound1_8', this.value)">
+                           class="volume-slider" data-row="row1" data-sound="sound1_8" data-type="volume"
+                           oninput="updateVolume('row1', 'sound1_8', this.value)">
                     <span>+</span>
                 </div>
                               
             </div>
 
             <div class="sound-container"> <!-- Vind hög frekvens -->
-                <button onclick="toggleSound('row1', 'sound1_9')">Toggle Wind_High</button>                
+                <button onclick="toggleSound('row1', 'sound1_9')">Wind_High</button>
+                <button onclick="downloadSound('Audio/Act_1/TME_Act1 Edit 1 Export 1 Wind_High Render 0.mp3')">Download</button>                
                 <div class="volume-control">
                     <span>-</span>
-                    <input type="range" min="0" max="1" step="0.01" value="0.6"
-                           class="volume-slider" oninput="updateVolume('row1', 'sound1_9', this.value)">
+                    <input type="range" min="0" max="1" step="0.01" value="1"
+                           class="volume-slider" data-row="row1" data-sound="sound1_9" data-type="volume"
+                           oninput="updateVolume('row1', 'sound1_9', this.value)">
                     <span>+</span>
                 </div>
                 <div class="pan-control">
                     <span>L</span>
-                    <input type="range" min="-1" max="1" step="0.01" value="0.5"
-                    class="pan-slider" oninput="updatePan('row1', 'sound1_9', this.value)">
+                    <input type="range" min="-1" max="1" step="0.01" value="0.8"
+                    class="pan-slider" data-row="row1" data-sound="sound1_9" data-type="pan"
+                    oninput="updatePan('row1', 'sound1_9', this.value)">
                     <span>R</span>
                 </div>                
             </div>
 
             <div class="sound-container"> <!-- Vind låg frekvens -->
-                <button onclick="toggleSound('row1', 'sound1_10')">Toggle Wind_Low</button>                
+                <button onclick="toggleSound('row1', 'sound1_10')">Wind_Low</button>
+                <button onclick="downloadSound('Audio/Act_1/TME_Act1 Edit 1 Export 1 Wind_Low Render 0.mp3')">Download</button>                
                 <div class="volume-control">
                     <span>-</span>
-                    <input type="range" min="0" max="1" step="0.01" value="0.8"
-                           class="volume-slider" oninput="updateVolume('row1', 'sound1_10', this.value)">
+                    <input type="range" min="0" max="1" step="0.01" value="1"
+                           class="volume-slider" data-row="row1" data-sound="sound1_10" data-type="volume"
+                           oninput="updateVolume('row1', 'sound1_10', this.value)">
                     <span>+</span>
                 </div>
                 <div class="pan-control">
                     <span>L</span>
-                    <input type="range" min="-1" max="1" step="0.01" value="-0.5"
-                    class="pan-slider" oninput="updatePan('row1', 'sound1_10', this.value)">
+                    <input type="range" min="-1" max="1" step="0.01" value="-0.8"
+                    class="pan-slider" data-row="row1" data-sound="sound1_10" data-type="pan"
+                    oninput="updatePan('row1', 'sound1_10', this.value)">
                     <span>R</span>
                 </div>                
             </div>
@@ -206,9 +233,13 @@ span {
                 <button onclick="stopAllInRow('row2')">Stop All</button>
               </h2>
             <button onclick="toggleSound('row2', 'sound2_1')">Toggle Sound 5</button>
+            <button onclick="downloadSound('Audio/Act_2/TME_Act2 Edit 1 Export 1 Sound_5 Render 0.mp3')">Download</button>
             <button onclick="toggleSound('row2', 'sound2_2')">Toggle Sound 6</button>
+            <button onclick="downloadSound('Audio/Act_2/TME_Act2 Edit 1 Export 1 Sound_6 Render 0.mp3')">Download</button>
             <button onclick="toggleSound('row2', 'sound2_3')">Toggle Sound 7</button>
+            <button onclick="downloadSound('Audio/Act_2/TME_Act2 Edit 1 Export 1 Sound_7 Render 0.mp3')">Download</button>
             <button onclick="toggleSound('row2', 'sound2_4')">Toggle Sound 8</button>
+            <button onclick="downloadSound('Audio/Act_2/TME_Act2 Edit 1 Export 1 Sound_8 Render 0.mp3')">Download</button>
         </div>
         <div>
             <h2>ACT 3 
@@ -216,13 +247,18 @@ span {
                 <button onclick="stopAllInRow('row3')">Stop All</button>
               </h2>
             <button onclick="toggleSound('row3', 'sound3_1')">Toggle Sound 9</button>
+            <button onclick="downloadSound('Audio/Act_3/TME_Act3 Edit 1 Export 1 Sound_9 Render 0.mp3')">Download</button>
             <button onclick="toggleSound('row3', 'sound3_2')">Toggle Sound 10</button>
+            <button onclick="downloadSound('Audio/Act_3/TME_Act3 Edit 1 Export 1 Sound_10 Render 0.mp3')">Download</button>
             <button onclick="toggleSound('row3', 'sound3_3')">Toggle Sound 11</button>
+            <button onclick="downloadSound('Audio/Act_3/TME_Act3 Edit 1 Export 1 Sound_11 Render 0.mp3')">Download</button>
             <button onclick="toggleSound('row3', 'sound3_4')">Toggle Sound 12</button>
+            <button onclick="downloadSound('Audio/Act_3/TME_Act3 Edit 1 Export 1 Sound_12 Render 0.mp3')">Download</button>
         </div>
     </div>
 
     <script src="script.js"></script>
 
+</div>
 </body>
 </html>

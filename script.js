@@ -1,11 +1,10 @@
 const soundRows = {
     row1: {
-        sound1_1: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Animal_1 Render 0.mp3"), gainNode: null },
-        sound1_2: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Animal_2 Render 0.mp3"), gainNode: null },
-        sound1_3: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Animal_3 Render 0.mp3"), gainNode: null },
+        sound1_1: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Bird_1 Render 0.mp3"), gainNode: null },
+        sound1_2: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Bird_2 Render 0.mp3"), gainNode: null },
+        sound1_3: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Crickets Render 0.mp3"), gainNode: null },
         sound1_4: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Butterfly Render 0.mp3"), gainNode: null },
         sound1_5: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Fire Render 0.mp3"), gainNode: null },
-        sound1_6: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Soundbed Render 0.mp3"), gainNode: null },
         sound1_7: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Stream Render 0.mp3"), gainNode: null },
         sound1_8: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Wind_Ears Render 0.mp3"), gainNode: null },
         sound1_9: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Wind_High Render 0.mp3"), gainNode: null },
@@ -36,13 +35,21 @@ function initializeSoundboard() {
             const sound = row[soundId];
             const audio = sound.audio;
             const button = document.querySelector(`button[onclick="toggleSound('${rowId}', '${soundId}')"]`);
+            const volumeSlider = document.querySelector(`input[data-row="${rowId}"][data-sound="${soundId}"][data-type="volume"]`);
+            const panSlider = document.querySelector(`input[data-row="${rowId}"][data-sound="${soundId}"][data-type="pan"]`);
 
             if (audio && button) {
                 const source = audioContext.createMediaElementSource(audio);
                 const gainNode = audioContext.createGain();
                 const pannerNode = audioContext.createStereoPanner();
 
-                gainNode.gain.setValueAtTime(0, audioContext.currentTime); // Start muted
+                // Set initial gain and pan values from sliders
+                const initialGain = volumeSlider ? parseFloat(volumeSlider.value) : 1;
+                const initialPan = panSlider ? parseFloat(panSlider.value) : 0;
+
+                gainNode.gain.setValueAtTime(initialGain, audioContext.currentTime);
+                pannerNode.pan.setValueAtTime(initialPan, audioContext.currentTime);
+
                 source.connect(pannerNode).connect(gainNode).connect(audioContext.destination);
 
                 sound.gainNode = gainNode;
@@ -50,10 +57,11 @@ function initializeSoundboard() {
 
                 audio.pause();
                 audio.currentTime = 0;
-                button.style.backgroundColor = "rgb(255, 50, 50)";
+                button.style.backgroundColor = "rgb(255, 50, 50)"; // Red
             }
         });
     });
+    console.log("Soundboard initialized with slider values.");
 }
 
 // Show the soundboard and hide the start button
@@ -150,15 +158,28 @@ function handleRowButton(rowId) {
     }
 
     if (button.textContent === "Start") {
-        // Turn all sounds on
+        // Turn all sounds on with fade-in using initial slider values
         Object.entries(row).forEach(([soundId, sound]) => {
             const audio = sound.audio;
             const gainNode = sound.gainNode;
+            const pannerNode = sound.pannerNode;
             const audioContext = gainNode.context;
             const toggleButton = document.querySelector(`button[onclick="toggleSound('${rowId}', '${soundId}')"]`);
+            const volumeSlider = document.querySelector(`input[data-row="${rowId}"][data-sound="${soundId}"][data-type="volume"]`);
+            const panSlider = document.querySelector(`input[data-row="${rowId}"][data-sound="${soundId}"][data-type="pan"]`);
+
+            const fadeDuration = 1.5;
+
+            // Get initial slider values
+            const initialGain = volumeSlider ? parseFloat(volumeSlider.value) : 1;
+            const initialPan = panSlider ? parseFloat(panSlider.value) : 0;
 
             gainNode.gain.cancelScheduledValues(audioContext.currentTime);
-            gainNode.gain.setValueAtTime(1, audioContext.currentTime); // Unmute
+            gainNode.gain.setValueAtTime(0, audioContext.currentTime); // Start from 0
+            gainNode.gain.linearRampToValueAtTime(initialGain, audioContext.currentTime + fadeDuration); // Fade in to slider value
+
+            pannerNode.pan.setValueAtTime(initialPan, audioContext.currentTime); // Set initial pan value
+
             toggleButton.style.backgroundColor = "rgb(50, 255, 50)"; // Green
 
             audio.currentTime = 0;
@@ -166,11 +187,12 @@ function handleRowButton(rowId) {
         });
 
         button.textContent = "Restart";
-        console.log(`Started all sounds in ${rowId}.`);
+        console.log(`Started all sounds in ${rowId} with fade-in using slider values.`);
     } else {
         restartRow(rowId);
     }
 }
+
 
 function stopAllInRow(rowId) {
     const row = soundRows[rowId];
@@ -215,4 +237,13 @@ function updateVolume(rowId, soundId, value) {
     if (sound?.gainNode) {
         sound.gainNode.gain.setValueAtTime(parseFloat(value), sound.gainNode.context.currentTime);
     }
+}
+
+function downloadSound(filePath) {
+    const link = document.createElement('a');
+    link.href = filePath;
+    link.download = filePath.split('/').pop(); // Extract the file name
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 }
