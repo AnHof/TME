@@ -1,14 +1,14 @@
 const soundRows = {
     row1: {
-        sound1_1: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Bird_1 Render 0.mp3"), gainNode: null },
-        sound1_2: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Bird_2 Render 0.mp3"), gainNode: null },
-        sound1_3: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Crickets Render 0.mp3"), gainNode: null },
-        sound1_4: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Butterfly Render 0.mp3"), gainNode: null },
-        sound1_5: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Fire Render 0.mp3"), gainNode: null },
-        sound1_7: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Stream Render 0.mp3"), gainNode: null },
-        sound1_8: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Wind_Ears Render 0.mp3"), gainNode: null },
-        sound1_9: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Wind_High Render 0.mp3"), gainNode: null },
-        sound1_10: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Wind_Low Render 0.mp3"), gainNode: null }
+        sound1_1: { audio: new Audio("/Act_1/TME_Act1 Edit 1 Export 1 Bird_1 Render 0.mp3"), gainNode: null },
+        sound1_2: { audio: new Audio("/Act_1/TME_Act1 Edit 1 Export 1 Bird_2 Render 0.mp3"), gainNode: null },
+        sound1_3: { audio: new Audio("/Act_1/TME_Act1 Edit 1 Export 1 Crickets Render 0.mp3"), gainNode: null },
+        sound1_4: { audio: new Audio("/Act_1/TME_Act1 Edit 1 Export 1 Butterfly Render 0.mp3"), gainNode: null },
+        sound1_5: { audio: new Audio("/Act_1/TME_Act1 Edit 1 Export 1 Fire Render 0.mp3"), gainNode: null },
+        sound1_7: { audio: new Audio("/Act_1/TME_Act1 Edit 1 Export 1 Stream Render 0.mp3"), gainNode: null },
+        sound1_8: { audio: new Audio("/Act_1/TME_Act1 Edit 1 Export 1 Wind_Ears Render 0.mp3"), gainNode: null },
+        sound1_9: { audio: new Audio("/Act_1/TME_Act1 Edit 1 Export 1 Wind_High Render 0.mp3"), gainNode: null },
+        sound1_10: { audio: new Audio("/Act_1/TME_Act1 Edit 1 Export 1 Wind_Low Render 0.mp3"), gainNode: null }
     },
     row2: {
         sound2_1: { audio: new Audio("Audio/Elderly_BASS.mp3"), gainNode: null },
