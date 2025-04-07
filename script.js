@@ -240,7 +240,7 @@ function updateVolume(rowId, soundId, value) {
 }
 
 function downloadSound(filePath) {
-    const basePath = "/anhof.github.io/TME"; // Replace with your repository name
+    const basePath = "/TME/"; // Replace with your repository name
     const link = document.createElement('a');
     link.href = basePath + filePath; // Prepend the base path
     link.download = filePath.split('/').pop(); // Extract the file name
