@@ -1,14 +1,14 @@
 const soundRows = {
     row1: {
-        sound1_1: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Bird_1 Render 0.mp3"), gainNode: null },
-        sound1_2: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Bird_2 Render 0.mp3"), gainNode: null },
-        sound1_3: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Crickets Render 0.mp3"), gainNode: null },
-        sound1_4: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Butterfly Render 0.mp3"), gainNode: null },
-        sound1_5: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Fire Render 0.mp3"), gainNode: null },
-        sound1_7: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Stream Render 0.mp3"), gainNode: null },
-        sound1_8: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Wind_Ears Render 0.mp3"), gainNode: null },
-        sound1_9: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Wind_High Render 0.mp3"), gainNode: null },
-        sound1_10: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Wind_Low Render 0.mp3"), gainNode: null }
+        sound1_1: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Bird_1 Render 0.mp3"), gainNode: null, busy: false },
+        sound1_2: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Bird_2 Render 0.mp3"), gainNode: null, busy: false },
+        sound1_3: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Crickets Render 0.mp3"), gainNode: null, busy: false },
+        sound1_4: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Butterfly Render 0.mp3"), gainNode: null, busy: false },
+        sound1_5: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Fire Render 0.mp3"), gainNode: null, busy: false },
+        sound1_7: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Stream Render 0.mp3"), gainNode: null, busy: false },
+        sound1_8: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Wind_Ears Render 0.mp3"), gainNode: null, busy: false },
+        sound1_9: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Wind_High Render 0.mp3"), gainNode: null, busy: false },
+        sound1_10: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Wind_Low Render 0.mp3"), gainNode: null, busy: false }
     },
     row2: {
         sound2_1: { audio: new Audio("Audio/Elderly_BASS.mp3"), gainNode: null },
@@ -86,23 +86,46 @@ function stopRow(row) {
 }
 
 // Function to set the state of a sound (mute/unmute) with fade effect
-function setSoundState(sound, button, isMuted) {
+function setSoundState(sound, button, isMuted, targetVolume = 1) {
     const fadeDuration = 1.5; // Duration of fade effect in seconds
     const gainNode = sound.gainNode;
     const audioContext = gainNode.context;
 
+    // Prevent toggling if the sound is busy
+    if (sound.busy) {
+        console.log("Sound is busy, ignoring toggle.");
+        return;
+    }
+
+    // Mark the sound as busy
+    sound.busy = true;
+
+    // Disable the button and apply a greyed-out style
+    button.disabled = true;
+    button.style.opacity = "0.5"; // Grey out the button
+
     gainNode.gain.cancelScheduledValues(audioContext.currentTime);
+
     if (isMuted) {
-        // Fade out
+        // Fade in (unmute)
+        console.log(`Unmuting sound. Target volume: ${targetVolume}`);
+        gainNode.gain.setValueAtTime(0, audioContext.currentTime); // Start from 0
+        gainNode.gain.linearRampToValueAtTime(targetVolume, audioContext.currentTime + fadeDuration); // Fade to slider value
+        button.style.backgroundColor = "rgb(50, 255, 50)"; // Set button to green
+    } else {
+        // Fade out (mute)
+        console.log("Muting sound.");
         gainNode.gain.setValueAtTime(gainNode.gain.value, audioContext.currentTime);
         gainNode.gain.linearRampToValueAtTime(0, audioContext.currentTime + fadeDuration);
         button.style.backgroundColor = "rgb(255, 50, 50)"; // Set button to red
-    } else {
-        // Fade in
-        gainNode.gain.setValueAtTime(gainNode.gain.value, audioContext.currentTime);
-        gainNode.gain.linearRampToValueAtTime(1, audioContext.currentTime + fadeDuration);
-        button.style.backgroundColor = "rgb(50, 255, 50)"; // Set button to green
     }
+
+    // Clear the busy state and re-enable the button after the fade effect completes
+    setTimeout(() => {
+        sound.busy = false;
+        button.disabled = false;
+        button.style.opacity = "1"; // Restore button opacity
+    }, fadeDuration * 1000);
 }
 
 function toggleSound(rowId, soundId) {
@@ -111,14 +134,27 @@ function toggleSound(rowId, soundId) {
         const sound = row[soundId];
         const audio = sound.audio;
         const button = document.querySelector(`button[onclick="toggleSound('${rowId}', '${soundId}')"]`);
+        const volumeSlider = document.querySelector(
+            `input[data-row="${rowId}"][data-sound="${soundId}"][data-type="volume"]`
+        );
+
         if (audio && button) {
-            const isMuted = sound.gainNode.gain.value > 0;
-            setSoundState(sound, button, isMuted); // Toggle mute/unmute
+            // Check if the sound is currently muted
+            const isMuted = sound.gainNode.gain.value === 0;
+
+            // Retrieve the current volume slider value
+            const targetVolume = volumeSlider ? parseFloat(volumeSlider.value) : 1;
+
+            // Toggle the sound state
+            setSoundState(sound, button, isMuted, targetVolume);
+
+            // Play the audio if unmuted
             if (!isMuted && audio.paused) {
                 audio.currentTime = 0; // Reset to the beginning
                 audio.play().catch(error => console.error("Audio playback error:", error));
             }
-            console.log(`${soundId} in ${rowId} is now ${isMuted ? "muted" : "unmuted"}.`);
+
+            console.log(`${soundId} in ${rowId} is now ${isMuted ? "unmuted" : "muted"}.`);
         }
     } else {
         console.error(`Row with id "${rowId}" not found.`);
