@@ -10,6 +10,13 @@ const soundRows = {
         sound1_9: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Wind_High Render 0.mp3"), gainNode: null, busy: false },
         sound1_10: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Wind_Low Render 0.mp3"), gainNode: null, busy: false }
     },
+    row1_fx: {
+        sound_fx_1: { audio: new Audio("Audio/FX/TME_Act1 Edit 1 Export 1 BuildingRise_1 Render 1.mp3"), gainNode: null, busy: false },
+        sound_fx_2: { audio: new Audio("Audio/FX/TME_Act1 Edit 1 Export 1 BuildingRise_2 Render 1.mp3"), gainNode: null, busy: false },
+        sound_fx_3: { audio: new Audio("Audio/FX/TME_Act1 Edit 1 Export 1 StoneRoll_1 Render 1.mp3"), gainNode: null, busy: false },
+        sound_fx_4: { audio: new Audio("Audio/FX/TME_Act1 Edit 1 Export 1 StoneRoll_2 Render 1.mp3"), gainNode: null, busy: false },
+        sound_fx_5: { audio: new Audio("Audio/FX/TME_Act1 Edit 1 Export 1 EFFECT_Breathing Render 0.mp3"), gainNode: null, busy: false }
+    },
     row2: {
         sound2_1: { audio: new Audio("Audio/Elderly_BASS.mp3"), gainNode: null },
         sound2_2: { audio: new Audio("Audio/Elderly_DRUMS.mp3"), gainNode: null },
@@ -34,11 +41,13 @@ function initializeSoundboard() {
         Object.keys(row).forEach(soundId => {
             const sound = row[soundId];
             const audio = sound.audio;
-            const button = document.querySelector(`button[onclick="toggleSound('${rowId}', '${soundId}')"]`);
+            const button = document.querySelector(
+                `button[onclick="toggleSound('${rowId}', '${soundId}')"]`
+            );
             const volumeSlider = document.querySelector(`input[data-row="${rowId}"][data-sound="${soundId}"][data-type="volume"]`);
             const panSlider = document.querySelector(`input[data-row="${rowId}"][data-sound="${soundId}"][data-type="pan"]`);
 
-            if (audio && button) {
+            if (audio) {
                 const source = audioContext.createMediaElementSource(audio);
                 const gainNode = audioContext.createGain();
                 const pannerNode = audioContext.createStereoPanner();
@@ -57,7 +66,11 @@ function initializeSoundboard() {
 
                 audio.pause();
                 audio.currentTime = 0;
-                button.style.backgroundColor = "rgb(255, 50, 50)"; // Red
+
+                // Set button color to red initially
+                if (button) {
+                    button.style.backgroundColor = "rgb(255, 50, 50)"; // Red
+                }
             }
         });
     });
@@ -139,22 +152,48 @@ function toggleSound(rowId, soundId) {
         );
 
         if (audio && button) {
-            // Check if the sound is currently muted
-            const isMuted = sound.gainNode.gain.value === 0;
+            const isOneShot = rowId === "row1_fx";
 
-            // Retrieve the current volume slider value
-            const targetVolume = volumeSlider ? parseFloat(volumeSlider.value) : 1;
+            if (!sound.gainNode || !sound.pannerNode) {
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                const source = audioContext.createMediaElementSource(audio);
+                const gainNode = audioContext.createGain();
+                const pannerNode = audioContext.createStereoPanner();
 
-            // Toggle the sound state
-            setSoundState(sound, button, isMuted, targetVolume);
+                source.connect(pannerNode).connect(gainNode).connect(audioContext.destination);
 
-            // Play the audio if unmuted
-            if (!isMuted && audio.paused) {
-                audio.currentTime = 0; // Reset to the beginning
-                audio.play().catch(error => console.error("Audio playback error:", error));
+                sound.gainNode = gainNode;
+                sound.pannerNode = pannerNode;
             }
 
-            console.log(`${soundId} in ${rowId} is now ${isMuted ? "unmuted" : "muted"}.`);
+            const gainNode = sound.gainNode;
+            const audioContext = gainNode.context;
+
+            if (isOneShot) {
+                const targetVolume = volumeSlider ? parseFloat(volumeSlider.value) : 1;
+
+                gainNode.gain.cancelScheduledValues(audioContext.currentTime);
+                gainNode.gain.setValueAtTime(targetVolume, audioContext.currentTime);
+
+                audio.pause();
+                audio.currentTime = 0;
+                audio.play().catch(error => console.error("Audio playback error:", error));
+
+                button.style.backgroundColor = "rgb(50, 255, 50)"; // Green
+                audio.onended = () => {
+                    button.style.backgroundColor = "rgb(255, 50, 50)"; // Red
+                };
+            } else {
+                const isMuted = gainNode.gain.value === 0;
+                const targetVolume = volumeSlider ? parseFloat(volumeSlider.value) : 1;
+
+                setSoundState(sound, button, isMuted, targetVolume);
+
+                if (!isMuted && audio.paused) {
+                    audio.currentTime = 0;
+                    audio.play().catch(error => console.error("Audio playback error:", error));
+                }
+            }
         }
     } else {
         console.error(`Row with id "${rowId}" not found.`);
