@@ -1,20 +1,15 @@
 const soundRows = {
     row1: {
-        sound1_1: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Bird_1 Render 0.mp3"), gainNode: null, busy: false },
-        sound1_2: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Bird_2 Render 0.mp3"), gainNode: null, busy: false },
-        sound1_3: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Crickets Render 0.mp3"), gainNode: null, busy: false },
-        sound1_4: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Butterfly Render 0.mp3"), gainNode: null, busy: false },
-        sound1_5: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Fire Render 0.mp3"), gainNode: null, busy: false },
-        sound1_7: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Stream Render 0.mp3"), gainNode: null, busy: false },
-        sound1_8: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Wind_Ears Render 0.mp3"), gainNode: null, busy: false },
-        sound1_9: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Wind_High Render 0.mp3"), gainNode: null, busy: false },
-        sound1_10: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Wind_Low Render 0.mp3"), gainNode: null, busy: false }
+        Act1_Butterfly_NoMagic: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Butterfly_NoMagic.wav"), gainNode: null, busy: false },
+        Act1_Fire: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Fire.wav"), gainNode: null, busy: false },
+        Act1_Wind: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Wind.wav"), gainNode: null, busy: false },
+        Act1_Window_Forest: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 SkogensLjud.wav"), gainNode: null, busy: false }
     },
     row1_fx: {
-        sound_fx_1: { audio: new Audio("Audio/FX/TME_Act1 Edit 1 Export 1 BuildingRise_1 Render 1.mp3"), gainNode: null, busy: false },
-        sound_fx_2: { audio: new Audio("Audio/FX/TME_Act1 Edit 1 Export 1 BuildingRise_2 Render 1.mp3"), gainNode: null, busy: false },
-        sound_fx_3: { audio: new Audio("Audio/FX/TME_Act1 Edit 1 Export 1 StoneRoll_1 Render 1.mp3"), gainNode: null, busy: false },
-        sound_fx_4: { audio: new Audio("Audio/FX/TME_Act1 Edit 1 Export 1 StoneRoll_2 Render 1.mp3"), gainNode: null, busy: false },
+        Act1_Building_Rise1: { audio: new Audio("Audio/FX/TME_Act1 Edit 1 Export 1 BuildingRise_1.wav"), gainNode: null, busy: false },
+        Act1_Building_Rise2: { audio: new Audio("Audio/FX/TME_Act1 Edit 1 Export 1 BuildingRise_2.wav"), gainNode: null, busy: false },
+        Act1_Window_Grow: { audio: new Audio("Audio/FX/TME_Act1 Edit 1 Export 1 WindowGrow.wav"), gainNode: null, busy: false },
+        Act1_Window_Shatter: { audio: new Audio("Audio/FX/TME_Act1 Edit 1 Export 1 WindowShatter.wav"), gainNode: null, busy: false },
         sound_fx_5: { audio: new Audio("Audio/FX/TME_Act1 Edit 1 Export 1 EFFECT_Breathing Render 0.mp3"), gainNode: null, busy: false }
     },
     row2: {
