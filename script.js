@@ -1,6 +1,6 @@
 const soundRows = {
     row1: {
-        Act1_Butterfly_NoMagic: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Butterfly_NoMagic.wav"), gainNode: null, busy: false },
+        Act1_Butterfly_NoMagic: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Butterf_NoMagic.wav"), gainNode: null, busy: false },
         Act1_Fire: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Fire.wav"), gainNode: null, busy: false },
         Act1_Wind: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 Wind.wav"), gainNode: null, busy: false },
         Act1_Window_Forest: { audio: new Audio("Audio/Act_1/TME_Act1 Edit 1 Export 1 SkogensLjud.wav"), gainNode: null, busy: false }
