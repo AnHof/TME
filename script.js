@@ -8,8 +8,8 @@ const soundRows = {
     row1_fx: {
         Act1_Building_Rise1: { audio: new Audio("Audio/FX/TME_Act1 Edit 1 Export 1 BuildingRise_1.wav"), gainNode: null, busy: false },
         Act1_Building_Rise2: { audio: new Audio("Audio/FX/TME_Act1 Edit 1 Export 1 BuildingRise_2.wav"), gainNode: null, busy: false },
-        Act1_Window_Grow: { audio: new Audio("Audio/FX/TME_Act1 Edit 1 Export 1 WindowGrow.wav"), gainNode: null, busy: false },
-        Act1_Window_Shatter: { audio: new Audio("Audio/FX/TME_Act1 Edit 1 Export 1 WindowShatter.wav"), gainNode: null, busy: false },
+        Act1_Window_Grow: { audio: new Audio("Audio/TME_Act1 Edit 1 Export 1 WindowGrow.wav"), gainNode: null, busy: false },
+        Act1_Window_Shatter: { audio: new Audio("Audio/TME_Act1 Edit 1 Export 1 WindowShatter.wav"), gainNode: null, busy: false },
         sound_fx_5: { audio: new Audio("Audio/FX/TME_Act1 Edit 1 Export 1 EFFECT_Breathing Render 0.mp3"), gainNode: null, busy: false }
     },
     row2: {
