@@ -67,7 +67,7 @@ span {
                 <button onclick="downloadSound('Audio/Act_1/TME_Act1 Edit 1 Export 1 Butterf_NoMagic.wav')">Download</button>                
                 <div class="volume-control">
                     <span>-</span>
-                    <input type="range" min="0" max="1" step="0.01" value="1"
+                    <input type="range" min="0" max="1" step="0.01" value="0"
                            class="volume-slider" data-row="row1" data-sound="Act1_Butterfly_NoMagic" data-type="volume"
                            oninput="updateVolume('row1', 'Act1_Butterfly_NoMagic', this.value)">
                     <span>+</span>
@@ -93,7 +93,7 @@ span {
                 </div>
                 <div class="pan-control">
                     <span>L</span>
-                    <input type="range" min="-1" max="1" step="0.01" value="-0.7"
+                    <input type="range" min="-1" max="1" step="0.01" value="-0.5"
                     class="pan-slider" data-row="row1" data-sound="Act1_Fire" data-type="pan"
                     oninput="updatePan('row1', 'Act1_Fire', this.value)">
                     <span>R</span>
@@ -118,14 +118,14 @@ span {
                 <button onclick="downloadSound('Audio/Act_1/TME_Act1 Edit 1 Export 1 SkogensLjud.wav')">Download</button>                
                 <div class="volume-control">
                     <span>-</span>
-                    <input type="range" min="0" max="1" step="0.01" value="1"
+                    <input type="range" min="0" max="1" step="0.01" value="0"
                            class="volume-slider" data-row="row1" data-sound="Act1_Window_Forest" data-type="volume"
                            oninput="updateVolume('row1', 'Act1_Window_Forest', this.value)">
                     <span>+</span>
                 </div>
                 <div class="pan-control">
                     <span>L</span>
-                    <input type="range" min="-1" max="1" step="0.01" value="-0.8"
+                    <input type="range" min="-1" max="1" step="0.01" value="0.5"
                     class="pan-slider" data-row="row1" data-sound="Act1_Window_Forest" data-type="pan"
                     oninput="updatePan('row1', 'Act1_Window_Forest', this.value)">
                     <span>R</span>
@@ -203,24 +203,6 @@ span {
                     <input type="range" min="-1" max="1" step="0.01" value="0.3"
                            class="pan-slider" data-row="row1_fx" data-sound="Act1_Window_Shatter" data-type="pan"
                            oninput="updatePan('row1_fx', 'Act1_Window_Shatter', this.value)">
-                    <span>R</span>
-                </div>
-            </div>
-            <div class="sound-container">
-                <button onclick="toggleSound('row1_fx', 'sound_fx_5')">Breathing</button>
-                <button onclick="downloadSound('Audio/FX/TME_Act1 Edit 1 Export 1 EFFECT_Breathing Render 1.mp3')">Download</button>
-                <div class="volume-control">
-                    <span>-</span>
-                    <input type="range" min="0" max="1" step="0.01" value="0.1"
-                           class="volume-slider" data-row="row1_fx" data-sound="sound_fx_5" data-type="volume"
-                           oninput="updateVolume('row1_fx', 'sound_fx_5', this.value)">
-                    <span>+</span>
-                </div>
-                <div class="pan-control">
-                    <span>L</span>
-                    <input type="range" min="-1" max="1" step="0.01" value="0"
-                           class="pan-slider" data-row="row1_fx" data-sound="sound_fx_5" data-type="pan"
-                           oninput="updatePan('row1_fx', 'sound_fx_5', this.value)">
                     <span>R</span>
                 </div>
             </div>
