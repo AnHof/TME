@@ -20,8 +20,19 @@ const soundRows = {
     },
     row2_fx: {
         Act2_BuildingClash: { audio: new Audio("Audio/Act_2/TME_Act2 Edit 1 Export 1 StrukturernaKrockar.wav"), gainNode: null, busy: false },
-        Act1_Building_Rise2: { audio: new Audio("Audio/FX/TME_Act1 Edit 1 Export 1 BuildingRise_2.wav"), gainNode: null, busy: false },
-        Act1_Window_Grow: { audio: new Audio("Audio/FX/TME_Act1 Edit 1 Export 1 WindowGrow.wav"), gainNode: null, busy: false },
+        Act2_BuildingFall: { audio: new Audio("Audio/Act_2/TME_Act2 Edit 1 Export 1 StrukturernaRasar.wav"), gainNode: null, busy: false },
+        Act2_Butterfly_Magic: { audio: new Audio("Audio/Act_2/TME_Act2 Edit 1 Export 1 Butterfly_Magic.wav"), gainNode: null, busy: false },
+        Act2_Portal: { audio: new Audio("Audio/Act_2/TME_Act2 Edit 1 Export 1 Portalen öppnas.wav"), gainNode: null, busy: false },
+        Act2_ConcreteFall1: { audio: new Audio("Audio/Act_2/TME_Act2 Edit 1 Export 1 RasandeCementbit_1.wav"), gainNode: null, busy: false },
+        Act2_ConcreteFall2: { audio: new Audio("Audio/Act_2/TME_Act2 Edit 1 Export 1 RasandeCementbit_2.wav"), gainNode: null, busy: false },
+        Act2_ConcreteFall3: { audio: new Audio("Audio/Act_2/TME_Act2 Edit 1 Export 1 RasandeCementbit_3.wav"), gainNode: null, busy: false },
+        Act2_ConcreteFall4: { audio: new Audio("Audio/Act_2/TME_Act2 Edit 1 Export 1 RasandeCementbit_4.wav"), gainNode: null, busy: false },
+        Act2_ConcreteFall5: { audio: new Audio("Audio/Act_2/TME_Act2 Edit 1 Export 1 RasandeCementbit_5.wav"), gainNode: null, busy: false },
+        Act2_PickStone1: { audio: new Audio("Audio/Act_2/TME_Act2 Edit 1 Export 1 Stenplock 1.wav"), gainNode: null, busy: false },
+        Act2_PickStone2: { audio: new Audio("Audio/Act_2/TME_Act2 Edit 1 Export 1 Stenplock 2.wav"), gainNode: null, busy: false },
+        Act2_PickStone3: { audio: new Audio("Audio/Act_2/TME_Act2 Edit 1 Export 1 Stenplock 3.wav"), gainNode: null, busy: false },
+        Act2_PickStone4: { audio: new Audio("Audio/Act_2/TME_Act2 Edit 1 Export 1 Stenplock 4.wav"), gainNode: null, busy: false },
+        Act2_PickStone5: { audio: new Audio("Audio/Act_2/TME_Act2 Edit 1 Export 1 Stenplock 5.wav"), gainNode: null, busy: false },
         Act1_Window_Shatter: { audio: new Audio("Audio/FX/TME_Act1 Edit 1 Export 1 WindowShatter.wav"), gainNode: null, busy: false },
         sound_fx_5: { audio: new Audio("Audio/FX/TME_Act1 Edit 1 Export 1 EFFECT_Breathing Render 0.mp3"), gainNode: null, busy: false }
     },
@@ -172,19 +183,29 @@ function toggleSound(rowId, soundId) {
             const audioContext = gainNode.context;
 
             if (isOneShot) {
-                const targetVolume = volumeSlider ? parseFloat(volumeSlider.value) : 1;
-
-                gainNode.gain.cancelScheduledValues(audioContext.currentTime);
-                gainNode.gain.setValueAtTime(targetVolume, audioContext.currentTime);
-
-                audio.pause();
-                audio.currentTime = 0;
-                audio.play().catch(error => console.error("Audio playback error:", error));
-
-                button.style.backgroundColor = "rgb(50, 255, 50)"; // Green
-                audio.onended = () => {
+                if (!audio.paused) {
+                    // If the sound is playing, mute it
+                    gainNode.gain.cancelScheduledValues(audioContext.currentTime);
+                    gainNode.gain.setValueAtTime(0, audioContext.currentTime);
+                    audio.pause();
+                    audio.currentTime = 0;
                     button.style.backgroundColor = "rgb(255, 50, 50)"; // Red
-                };
+                } else {
+                    // If the sound is not playing, play it
+                    const targetVolume = volumeSlider ? parseFloat(volumeSlider.value) : 1;
+
+                    gainNode.gain.cancelScheduledValues(audioContext.currentTime);
+                    gainNode.gain.setValueAtTime(targetVolume, audioContext.currentTime);
+
+                    audio.pause();
+                    audio.currentTime = 0;
+                    audio.play().catch(error => console.error("Audio playback error:", error));
+
+                    button.style.backgroundColor = "rgb(50, 255, 50)"; // Green
+                    audio.onended = () => {
+                        button.style.backgroundColor = "rgb(255, 50, 50)"; // Red
+                    };
+                }
             } else {
                 const isMuted = gainNode.gain.value === 0;
                 const targetVolume = volumeSlider ? parseFloat(volumeSlider.value) : 1;

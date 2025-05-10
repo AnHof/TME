@@ -16,12 +16,23 @@
     position: relative;
 }
 
-button {
-    margin: 0px;
-    padding: 10px 20px;
-    font-size: 14px;
-    width: 120px; /* Set this to your preferred standard size */
-    text-align: center;
+.button-primary {
+    font-size: 14px; /* Set font size to 12px */
+    padding: 5px 10px; /* Keep the padding as it is */
+    margin: 0; /* Remove any margin */
+    width: 130px; /* Set the maximum width to 150px */
+    text-align: center; /* Center the text inside the button */
+}
+
+.button-secondary {
+    font-size: 14px; /* Set font size to 12px */
+    padding: 5px 10px; /* Keep the padding as it is */
+    margin: 0; /* Remove any margin */
+    max-width: 200px; /* Set the maximum width to 120px */
+    width: auto; /* Allow the button to shrink if the word is shorter */
+    white-space: normal; /* Allow text to wrap inside the button */
+    word-wrap: break-word; /* Break long words if necessary */
+    text-align: center; /* Center the text inside the button */
 }
 
 .volume-control, .pan-control {
@@ -63,8 +74,8 @@ span {
             </h2>
 
             <div class="sound-container"> <!-- Omagisk Fjäril -->
-                <button onclick="toggleSound('row1', 'Act1_Butterfly_NoMagic')">Butterfly</button>
-                <button onclick="downloadSound('Audio/Act_1/TME_Act1 Edit 1 Export 1 Butterf_NoMagic.wav')">Download</button>                
+                <button class="button-primary" onclick="toggleSound('row1', 'Act1_Butterfly_NoMagic')">Butterfly</button>
+                <button class="button-primary" onclick="downloadSound('Audio/Act_1/TME_Act1 Edit 1 Export 1 Butterf_NoMagic.wav')">Download</button>                
                 <div class="volume-control">
                     <span>-</span>
                     <input type="range" min="0" max="1" step="0.01" value="0"
@@ -82,8 +93,8 @@ span {
             </div>
 
             <div class="sound-container"> <!-- Eld -->
-                <button onclick="toggleSound('row1', 'Act1_Fire')">Fire</button>
-                <button onclick="downloadSound('Audio/Act_1/TME_Act1 Edit 1 Export 1 Fire.wav')">Download</button>                
+                <button class="button-primary" onclick="toggleSound('row1', 'Act1_Fire')">Fire</button>
+                <button class="button-primary" onclick="downloadSound('Audio/Act_1/TME_Act1 Edit 1 Export 1 Fire.wav')">Download</button>                
                 <div class="volume-control">
                     <span>-</span>
                     <input type="range" min="0" max="1" step="0.01" value="0.8"
@@ -101,8 +112,8 @@ span {
             </div>
 
             <div class="sound-container"> <!-- Vind i öronen -->
-                <button onclick="toggleSound('row1', 'Act1_Wind')">Wind</button>
-                <button onclick="downloadSound('Audio/Act_1/TME_Act1 Edit 1 Export 1 Wind.wav')">Download</button>                
+                <button class="button-primary" onclick="toggleSound('row1', 'Act1_Wind')">Wind</button>
+                <button class="button-primary" onclick="downloadSound('Audio/Act_1/TME_Act1 Edit 1 Export 1 Wind.wav')">Download</button>                
                 <div class="volume-control">
                     <span>-</span>
                     <input type="range" min="0" max="1" step="0.01" value="1"
@@ -114,8 +125,8 @@ span {
             </div>
 
             <div class="sound-container"> <!-- Skog i fönster -->
-                <button onclick="toggleSound('row1', 'Act1_Window_Forest')">Woods_Window</button>
-                <button onclick="downloadSound('Audio/Act_1/TME_Act1 Edit 1 Export 1 SkogensLjud.wav')">Download</button>                
+                <button class="button-primary" onclick="toggleSound('row1', 'Act1_Window_Forest')">Woods_Window</button>
+                <button class="button-primary" onclick="downloadSound('Audio/Act_1/TME_Act1 Edit 1 Export 1 SkogensLjud.wav')">Download</button>                
                 <div class="volume-control">
                     <span>-</span>
                     <input type="range" min="0" max="1" step="0.01" value="0"
@@ -135,8 +146,8 @@ span {
         <div>
             <h2>ACT 1 One-shots</h2>
             <div class="sound-container">
-                <button onclick="toggleSound('row1_fx', 'Act1_Building_Rise1')">BuildingRise_1</button>
-                <button onclick="downloadSound('Audio/FX/TME_Act1 Edit 1 Export 1 BuildingRise_1.wav')">Download</button>
+                <button class="button-primary" onclick="toggleSound('row1_fx', 'Act1_Building_Rise1')">BuildingRise_1</button>
+                <button class="button-primary" onclick="downloadSound('Audio/FX/TME_Act1 Edit 1 Export 1 BuildingRise_1.wav')">Download</button>
                 <div class="volume-control">
                     <span>-</span>
                     <input type="range" min="0" max="1" step="0.01" value="1"
@@ -153,8 +164,8 @@ span {
                 </div>
             </div>
             <div class="sound-container">
-                <button onclick="toggleSound('row1_fx', 'Act1_Building_Rise2')">BuildingRise_2</button>
-                <button onclick="downloadSound('Audio/FX/TME_Act1 Edit 1 Export 1 BuildingRise_2.wav')">Download</button>
+                <button class="button-primary" onclick="toggleSound('row1_fx', 'Act1_Building_Rise2')">BuildingRise_2</button>
+                <button class="button-primary" onclick="downloadSound('Audio/FX/TME_Act1 Edit 1 Export 1 BuildingRise_2.wav')">Download</button>
                 <div class="volume-control">
                     <span>-</span>
                     <input type="range" min="0" max="1" step="0.01" value="1"
@@ -171,8 +182,8 @@ span {
                 </div>
             </div>
             <div class="sound-container">
-                <button onclick="toggleSound('row1_fx', 'Act1_Window_Grow')">Window Grow</button>
-                <button onclick="downloadSound('Audio/FX/TME_Act1 Edit 1 Export 1 WindowGrow.wav')">Download</button>
+                <button class="button-primary" onclick="toggleSound('row1_fx', 'Act1_Window_Grow')">Window Grow</button>
+                <button class="button-primary" onclick="downloadSound('Audio/FX/TME_Act1 Edit 1 Export 1 WindowGrow.wav')">Download</button>
                 <div class="volume-control">
                     <span>-</span>
                     <input type="range" min="0" max="1" step="0.01" value="1"
@@ -189,8 +200,8 @@ span {
                 </div>
             </div>
             <div class="sound-container">
-                <button onclick="toggleSound('row1_fx', 'Act1_Window_Shatter')">Window Shatter</button>
-                <button onclick="downloadSound('Audio/FX/TME_Act1 Edit 1 Export 1 WindowShatter.wav')">Download</button>
+                <button class="button-primary" onclick="toggleSound('row1_fx', 'Act1_Window_Shatter')">Window Break</button>
+                <button class="button-primary" onclick="downloadSound('Audio/FX/TME_Act1 Edit 1 Export 1 WindowShatter.wav')">Download</button>
                 <div class="volume-control">
                     <span>-</span>
                     <input type="range" min="0" max="1" step="0.01" value="1"
@@ -209,25 +220,268 @@ span {
         </div>
         <div>
             <h2>ACT 2 One-shots</h2>
-            <div class="sound-container"> <!-- Strukturerna krockar -->
-                <button onclick="toggleSound('row2_fx', 'Act2_BuildingClash')">Buildings Clash</button>
-                <button onclick="downloadSound('Audio/Act_2/TME_Act2 Edit 1 Export 1 StrukturernaKrockar.wav')">Download</button>
-                <div class="volume-control">
-                    <span>-</span>
-                    <input type="range" min="0" max="1" step="0.01" value="1"
-                           class="volume-slider" data-row="row2_fx" data-sound="Act2_BuildingClash" data-type="volume"
-                           oninput="updateVolume('row2_fx', 'Act2_BuildingClash', this.value)">
-                    <span>+</span>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center;"> <!-- Parent container for alignment -->
+                <div class="sound-container"> <!-- Strukturerna krockar -->
+                    <button class="button-primary" onclick="toggleSound('row2_fx', 'Act2_BuildingClash')">Buildings Clash</button>
+                    <button class="button-primary" onclick="downloadSound('Audio/Act_2/TME_Act2 Edit 1 Export 1 StrukturernaKrockar.wav')">Download</button>
+                        <div class="volume-control">
+                            <span>-</span>
+                            <input type="range" min="0" max="1" step="0.01" value="1"
+                            class="volume-slider" data-row="row2_fx" data-sound="Act2_BuildingClash" data-type="volume"
+                            oninput="updateVolume('row2_fx', 'Act2_BuildingClash', this.value)">
+                            <span>+</span>
+                        </div>
+                        <div class="pan-control">
+                            <span>L</span>
+                            <input type="range" min="-1" max="1" step="0.01" value="0"
+                                class="pan-slider" data-row="row2_fx" data-sound="Act2_BuildingClash" data-type="pan"
+                                oninput="updatePan('row2_fx', 'Act2_BuildingClash', this.value)">
+                            <span>R</span>
+                        </div>
                 </div>
-                <div class="pan-control">
-                    <span>L</span>
-                    <input type="range" min="-1" max="1" step="0.01" value="0"
-                           class="pan-slider" data-row="row2_fx" data-sound="Act2_BuildingClash" data-type="pan"
-                           oninput="updatePan('row1_fx', 'Act2_BuildingClash', this.value)">
-                    <span>R</span>
+                <div class="sound-container"> <!-- Strukturerna rasar -->
+                    <button class="button-primary" onclick="toggleSound('row2_fx', 'Act2_BuildingFall')">Buildings Fall</button>
+                    <button class="button-primary" onclick="downloadSound('Audio/Act_2/TME_Act2 Edit 1 Export 1 StrukturernaRasar.wav')">Download</button>
+                        <div class="volume-control">
+                            <span>-</span>
+                            <input type="range" min="0" max="1" step="0.01" value="1"
+                                class="volume-slider" data-row="row2_fx" data-sound="Act2_BuildingFall" data-type="volume"
+                                oninput="updateVolume('row2_fx', 'Act2_BuildingFall', this.value)">
+                            <span>+</span>
+                        </div>
+                        <div class="pan-control">
+                            <span>L</span>
+                            <input type="range" min="-1" max="1" step="0.01" value="0"
+                                class="pan-slider" data-row="row2_fx" data-sound="Act2_BuildingFall" data-type="pan"
+                                oninput="updatePan('row2_fx', 'Act2_BuildingFall', this.value)">
+                            <span>R</span>
+                        </div>
                 </div>
+                <div class="sound-container"> <!-- Magisk Fjäril -->
+                    <button class="button-primary" onclick="toggleSound('row2_fx', 'Act2_Butterfly_Magic')">Butterfly_mag</button>
+                    <button class="button-primary" onclick="downloadSound('Audio/Act_2/TME_Act2 Edit 1 Export 1 Butterfly_magic.wav')">Download</button>
+                        <div class="volume-control">
+                            <span>-</span>
+                            <input type="range" min="0" max="1" step="0.01" value="1"
+                                class="volume-slider" data-row="row2_fx" data-sound="Act2_Butterfly_Magic" data-type="volume"
+                                oninput="updateVolume('row2_fx', 'Act2_Butterfly_Magic', this.value)">
+                            <span>+</span>
+                        </div>
+                        <div class="pan-control">
+                            <span>L</span>
+                            <input type="range" min="-1" max="1" step="0.01" value="0"
+                                class="pan-slider" data-row="row2_fx" data-sound="Act2_Butterfly_Magic" data-type="pan"
+                                oninput="updatePan('row2_fx', 'Act2_Butterfly_Magic', this.value)">
+                            <span>R</span>
+                        </div>
+                </div>
+                <div class="sound-container"> <!-- Portal -->
+                    <button class="button-primary" onclick="toggleSound('row2_fx', 'Act2_Portal')">Portal open</button>
+                    <button class="button-primary" onclick="downloadSound('Audio/Act_2/TME_Act2 Edit 1 Export 1 Portalen öppnas.wav')">Download</button>
+                        <div class="volume-control">
+                            <span>-</span>
+                            <input type="range" min="0" max="1" step="0.01" value="1"
+                                class="volume-slider" data-row="row2_fx" data-sound="Act2_Portal" data-type="volume"
+                                oninput="updateVolume('row2_fx', 'Act2_Portal', this.value)">
+                            <span>+</span>
+                        </div>
+                        <div class="pan-control">
+                            <span>L</span>
+                            <input type="range" min="-1" max="1" step="0.01" value="0"
+                                class="pan-slider" data-row="row2_fx" data-sound="Act2_Portal" data-type="pan"
+                                oninput="updatePan('row2_fx', 'Act2_Portal', this.value)">
+                            <span>R</span>
+                        </div>
+                </div>
+            </div>  
+        </div>
+<div>
+    <h5>Falling concrete</h5>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center;"> <!-- Parent container for alignment -->
+        <div class="sound-container"> <!-- Rasande cementbitar 1 -->
+            <button class="button-secondary" onclick="toggleSound('row2_fx', 'Act2_ConcreteFall1')">FC1</button>
+            <div class="volume-control">
+                <span>-</span>
+                <input type="range" min="0" max="1" step="0.01" value="1"
+                       class="volume-slider" data-row="row2_fx" data-sound="Act2_ConcreteFall1" data-type="volume"
+                       oninput="updateVolume('row2_fx', 'Act2_ConcreteFall1', this.value)">
+                <span>+</span>
+            </div>
+            <div class="pan-control">
+                <span>L</span>
+                <input type="range" min="-1" max="1" step="0.01" value="0"
+                       class="pan-slider" data-row="row2_fx" data-sound="Act2_ConcreteFall1" data-type="pan"
+                       oninput="updatePan('row2_fx', 'Act2_ConcreteFall1', this.value)">
+                <span>R</span>
             </div>
         </div>
+        <div class="sound-container"> <!-- Rasande cementbitar 2 -->
+            <button class="button-secondary" onclick="toggleSound('row2_fx', 'Act2_ConcreteFall2')">FC2</button>
+            <div class="volume-control">
+                <span>-</span>
+                <input type="range" min="0" max="1" step="0.01" value="1"
+                       class="volume-slider" data-row="row2_fx" data-sound="Act2_ConcreteFall2" data-type="volume"
+                       oninput="updateVolume('row2_fx', 'Act2_ConcreteFall2', this.value)">
+                <span>+</span>
+            </div>
+            <div class="pan-control">
+                <span>L</span>
+                <input type="range" min="-1" max="1" step="0.01" value="0"
+                       class="pan-slider" data-row="row2_fx" data-sound="Act2_ConcreteFall2" data-type="pan"
+                       oninput="updatePan('row2_fx', 'Act2_ConcreteFall2', this.value)">
+                <span>R</span>
+            </div>
+        </div>
+        <div class="sound-container"> <!-- Rasande cementbitar 3 -->
+            <button class="button-secondary" onclick="toggleSound('row2_fx', 'Act2_ConcreteFall3')">FC3</button>
+            <div class="volume-control">
+                <span>-</span>
+                <input type="range" min="0" max="1" step="0.01" value="1"
+                       class="volume-slider" data-row="row2_fx" data-sound="Act2_ConcreteFall3" data-type="volume"
+                       oninput="updateVolume('row2_fx', 'Act2_ConcreteFall3', this.value)">
+                <span>+</span>
+            </div>
+            <div class="pan-control">
+                <span>L</span>
+                <input type="range" min="-1" max="1" step="0.01" value="0"
+                       class="pan-slider" data-row="row2_fx" data-sound="Act2_ConcreteFall3" data-type="pan"
+                       oninput="updatePan('row2_fx', 'Act2_ConcreteFall3', this.value)">
+                <span>R</span>
+            </div>
+        </div>
+        <div class="sound-container"> <!-- Rasande cementbitar 4 -->
+            <button class="button-secondary" onclick="toggleSound('row2_fx', 'Act2_ConcreteFall4')">FC4</button>
+            <div class="volume-control">
+                <span>-</span>
+                <input type="range" min="0" max="1" step="0.01" value="1"
+                       class="volume-slider" data-row="row2_fx" data-sound="Act2_ConcreteFall4" data-type="volume"
+                       oninput="updateVolume('row2_fx', 'Act2_ConcreteFall4', this.value)">
+                <span>+</span>
+            </div>
+            <div class="pan-control">
+                <span>L</span>
+                <input type="range" min="-1" max="1" step="0.01" value="0"
+                       class="pan-slider" data-row="row2_fx" data-sound="Act2_ConcreteFall4" data-type="pan"
+                       oninput="updatePan('row2_fx', 'Act2_ConcreteFall4', this.value)">
+                <span>R</span>
+            </div>
+        </div>
+        <div class="sound-container"> <!-- Rasande cementbitar 5 -->
+            <button class="button-secondary" onclick="toggleSound('row2_fx', 'Act2_ConcreteFall5')">FC5</button>
+            <div class="volume-control">
+                <span>-</span>
+                <input type="range" min="0" max="1" step="0.01" value="1"
+                       class="volume-slider" data-row="row2_fx" data-sound="Act2_ConcreteFall5" data-type="volume"
+                       oninput="updateVolume('row2_fx', 'Act2_ConcreteFall5', this.value)">
+                <span>+</span>
+            </div>
+            <div class="pan-control">
+                <span>L</span>
+                <input type="range" min="-1" max="1" step="0.01" value="0"
+                       class="pan-slider" data-row="row2_fx" data-sound="Act2_ConcreteFall5" data-type="pan"
+                       oninput="updatePan('row2_fx', 'Act2_ConcreteFall5', this.value)">
+                <span>R</span>
+            </div>
+        </div>
+        <div class="sound-container"> <!-- DownloadKnapp -->
+            <button class="button-secondary" onclick="downloadSound('Audio/Act_2/TME_Act2_RasandeCement.zip')">Download All</button>
+        </div>
+    </div>
+</div>
+
+<div>
+    <h5>Pick up rock</h5>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center;"> <!-- Parent container for alignment -->
+        <div class="sound-container"> <!-- Stenplock 1 -->
+            <button class="button-secondary" onclick="toggleSound('row2_fx', 'Act2_PickStone1')">PR1</button>
+            <div class="volume-control">
+                <span>-</span>
+                <input type="range" min="0" max="1" step="0.01" value="1"
+                       class="volume-slider" data-row="row2_fx" data-sound="Act2_PickStone1" data-type="volume"
+                       oninput="updateVolume('row2_fx', 'Act2_PickStone1', this.value)">
+                <span>+</span>
+            </div>
+            <div class="pan-control">
+                <span>L</span>
+                <input type="range" min="-1" max="1" step="0.01" value="0"
+                       class="pan-slider" data-row="row2_fx" data-sound="Act2_PickStone1" data-type="pan"
+                       oninput="updatePan('row2_fx', 'Act2_PickStone1', this.value)">
+                <span>R</span>
+            </div>
+        </div>
+        <div class="sound-container"> <!-- Stenplock 2 -->
+            <button class="button-secondary" onclick="toggleSound('row2_fx', 'Act2_PickStone2')">PR2</button>
+            <div class="volume-control">
+                <span>-</span>
+                <input type="range" min="0" max="1" step="0.01" value="1"
+                       class="volume-slider" data-row="row2_fx" data-sound="Act2_PickStone2" data-type="volume"
+                       oninput="updateVolume('row2_fx', 'Act2_PickStone2', this.value)">
+                <span>+</span>
+            </div>
+            <div class="pan-control">
+                <span>L</span>
+                <input type="range" min="-1" max="1" step="0.01" value="0"
+                       class="pan-slider" data-row="row2_fx" data-sound="Act2_PickStone2" data-type="pan"
+                       oninput="updatePan('row2_fx', 'Act2_PickStone2', this.value)">
+                <span>R</span>
+            </div>
+        </div>
+        <div class="sound-container"> <!-- Stenplock 3 -->
+            <button class="button-secondary" onclick="toggleSound('row2_fx', 'Act2_PickStone3')">PR3</button>
+            <div class="volume-control">
+                <span>-</span>
+                <input type="range" min="0" max="1" step="0.01" value="1"
+                       class="volume-slider" data-row="row2_fx" data-sound="Act2_PickStone3" data-type="volume"
+                       oninput="updateVolume('row2_fx', 'Act2_PickStone3', this.value)">
+                <span>+</span>
+            </div>
+            <div class="pan-control">
+                <span>L</span>
+                <input type="range" min="-1" max="1" step="0.01" value="0"
+                       class="pan-slider" data-row="row2_fx" data-sound="Act2_PickStone3" data-type="pan"
+                       oninput="updatePan('row2_fx', 'Act2_PickStone3', this.value)">
+                <span>R</span>
+            </div>
+        </div>
+        <div class="sound-container"> <!-- Stenplock 4 -->
+            <button class="button-secondary" onclick="toggleSound('row2_fx', 'Act2_PickStone4')">PR4</button>
+            <div class="volume-control">
+                <span>-</span>
+                <input type="range" min="0" max="1" step="0.01" value="1"
+                       class="volume-slider" data-row="row2_fx" data-sound="Act2_PickStone4" data-type="volume"
+                       oninput="updateVolume('row2_fx', 'Act2_PickStone4', this.value)">
+                <span>+</span>
+            </div>
+            <div class="pan-control">
+                <span>L</span>
+                <input type="range" min="-1" max="1" step="0.01" value="0"
+                       class="pan-slider" data-row="row2_fx" data-sound="Act2_PickStone4" data-type="pan"
+                       oninput="updatePan('row2_fx', 'Act2_PickStone4', this.value)">
+                <span>R</span>
+            </div>
+        </div>
+        <div class="sound-container"> <!-- Stenplock 5 -->
+            <button class="button-secondary" onclick="toggleSound('row2_fx', 'Act2_PickStone5')">PR5</button>
+            <div class="volume-control">
+                <span>-</span>
+                <input type="range" min="0" max="1" step="0.01" value="1"
+                       class="volume-slider" data-row="row2_fx" data-sound="Act2_PickStone5" data-type="volume"
+                       oninput="updateVolume('row2_fx', 'Act2_PickStone5', this.value)">
+                <span>+</span>
+            </div>
+            <div class="pan-control">
+                <span>L</span>
+                <input type="range" min="-1" max="1" step="0.01" value="0"
+                       class="pan-slider" data-row="row2_fx" data-sound="Act2_PickStone5" data-type="pan"
+                       oninput="updatePan('row2_fx', 'Act2_PickStone5', this.value)">
+                <span>R</span>
+            </div>
+        </div>
+        <div class="sound-container"> <!-- DownloadKnapp -->
+            <button class="button-secondary" onclick="downloadSound('Audio/Act_2/TME_Act2_Stenplock.zip')">Download All</button>
+        </div>
+    </div>
+</div>
         <div>
             <h2>ACT 3 
                 <button id="btn-row3" onclick="handleRowButton('row3')">Start</button>
