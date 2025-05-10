@@ -212,14 +212,149 @@ span {
                 <button id="btn-row2" onclick="handleRowButton('row2')">Start</button>
                 <button onclick="stopAllInRow('row2')">Stop All</button>
               </h2>
-            <button onclick="toggleSound('row2', 'sound2_1')">Toggle Sound 5</button>
-            <button onclick="downloadSound('Audio/Act_2/TME_Act2 Edit 1 Export 1 Sound_5 Render 0.mp3')">Download</button>
-            <button onclick="toggleSound('row2', 'sound2_2')">Toggle Sound 6</button>
-            <button onclick="downloadSound('Audio/Act_2/TME_Act2 Edit 1 Export 1 Sound_6 Render 0.mp3')">Download</button>
-            <button onclick="toggleSound('row2', 'sound2_3')">Toggle Sound 7</button>
-            <button onclick="downloadSound('Audio/Act_2/TME_Act2 Edit 1 Export 1 Sound_7 Render 0.mp3')">Download</button>
-            <button onclick="toggleSound('row2', 'sound2_4')">Toggle Sound 8</button>
-            <button onclick="downloadSound('Audio/Act_2/TME_Act2 Edit 1 Export 1 Sound_8 Render 0.mp3')">Download</button>
+              <div class="sound-container"> <!-- Strukturerna krockar -->
+                <button onclick="toggleSound('row1', 'Act1_Butterfly_NoMagic')">Butterfly</button>
+                <button onclick="downloadSound('Audio/Act_1/TME_Act1 Edit 1 Export 1 Butterf_NoMagic.wav')">Download</button>                
+                <div class="volume-control">
+                    <span>-</span>
+                    <input type="range" min="0" max="1" step="0.01" value="0"
+                           class="volume-slider" data-row="row1" data-sound="Act1_Butterfly_NoMagic" data-type="volume"
+                           oninput="updateVolume('row1', 'Act1_Butterfly_NoMagic', this.value)">
+                    <span>+</span>
+                </div>
+                <div class="pan-control">
+                    <span>L</span>
+                    <input type="range" min="-1" max="1" step="0.01" value="0"
+                    class="pan-slider" data-row="row1" data-sound="Act1_Butterfly_NoMagic" data-type="pan"
+                    oninput="updatePan('row1', 'Act1_Butterfly_NoMagic', this.value)">
+                    <span>R</span>
+                </div>                
+            </div>
+            <div class="sound-container"> <!-- Strukturerna rasar -->
+                <button onclick="toggleSound('row1', 'Act1_Butterfly_NoMagic')">Butterfly</button>
+                <button onclick="downloadSound('Audio/Act_1/TME_Act1 Edit 1 Export 1 Butterf_NoMagic.wav')">Download</button>                
+                <div class="volume-control">
+                    <span>-</span>
+                    <input type="range" min="0" max="1" step="0.01" value="0"
+                           class="volume-slider" data-row="row1" data-sound="Act1_Butterfly_NoMagic" data-type="volume"
+                           oninput="updateVolume('row1', 'Act1_Butterfly_NoMagic', this.value)">
+                    <span>+</span>
+                </div>
+                <div class="pan-control">
+                    <span>L</span>
+                    <input type="range" min="-1" max="1" step="0.01" value="0"
+                    class="pan-slider" data-row="row1" data-sound="Act1_Butterfly_NoMagic" data-type="pan"
+                    oninput="updatePan('row1', 'Act1_Butterfly_NoMagic', this.value)">
+                    <span>R</span>
+                </div>                
+            </div>
+            <div class="sound-container"> <!-- Rasande Cement 1 -->
+                <button onclick="toggleSound('row1', 'Act1_Butterfly_NoMagic')">Butterfly</button>
+                <button onclick="downloadSound('Audio/Act_1/TME_Act1 Edit 1 Export 1 Butterf_NoMagic.wav')">Download</button>                
+                <div class="volume-control">
+                    <span>-</span>
+                    <input type="range" min="0" max="1" step="0.01" value="0"
+                           class="volume-slider" data-row="row1" data-sound="Act1_Butterfly_NoMagic" data-type="volume"
+                           oninput="updateVolume('row1', 'Act1_Butterfly_NoMagic', this.value)">
+                    <span>+</span>
+                </div>
+                <div class="pan-control">
+                    <span>L</span>
+                    <input type="range" min="-1" max="1" step="0.01" value="0"
+                    class="pan-slider" data-row="row1" data-sound="Act1_Butterfly_NoMagic" data-type="pan"
+                    oninput="updatePan('row1', 'Act1_Butterfly_NoMagic', this.value)">
+                    <span>R</span>
+                </div>                
+            </div>
+            <div class="sound-container"> <!-- Rasande Cement 2 -->
+                <button onclick="toggleSound('row1', 'Act1_Butterfly_NoMagic')">Butterfly</button>
+                <button onclick="downloadSound('Audio/Act_1/TME_Act1 Edit 1 Export 1 Butterf_NoMagic.wav')">Download</button>                
+                <div class="volume-control">
+                    <span>-</span>
+                    <input type="range" min="0" max="1" step="0.01" value="0"
+                           class="volume-slider" data-row="row1" data-sound="Act1_Butterfly_NoMagic" data-type="volume"
+                           oninput="updateVolume('row1', 'Act1_Butterfly_NoMagic', this.value)">
+                    <span>+</span>
+                </div>
+                <div class="pan-control">
+                    <span>L</span>
+                    <input type="range" min="-1" max="1" step="0.01" value="0"
+                    class="pan-slider" data-row="row1" data-sound="Act1_Butterfly_NoMagic" data-type="pan"
+                    oninput="updatePan('row1', 'Act1_Butterfly_NoMagic', this.value)">
+                    <span>R</span>
+                </div>                
+            </div>
+            <div class="sound-container"> <!-- Rasande Cement 3 -->
+                <button onclick="toggleSound('row1', 'Act1_Butterfly_NoMagic')">Butterfly</button>
+                <button onclick="downloadSound('Audio/Act_1/TME_Act1 Edit 1 Export 1 Butterf_NoMagic.wav')">Download</button>                
+                <div class="volume-control">
+                    <span>-</span>
+                    <input type="range" min="0" max="1" step="0.01" value="0"
+                           class="volume-slider" data-row="row1" data-sound="Act1_Butterfly_NoMagic" data-type="volume"
+                           oninput="updateVolume('row1', 'Act1_Butterfly_NoMagic', this.value)">
+                    <span>+</span>
+                </div>
+                <div class="pan-control">
+                    <span>L</span>
+                    <input type="range" min="-1" max="1" step="0.01" value="0"
+                    class="pan-slider" data-row="row1" data-sound="Act1_Butterfly_NoMagic" data-type="pan"
+                    oninput="updatePan('row1', 'Act1_Butterfly_NoMagic', this.value)">
+                    <span>R</span>
+                </div>                
+            </div><div class="sound-container"> <!-- Rasande Cement 4 -->
+                <button onclick="toggleSound('row1', 'Act1_Butterfly_NoMagic')">Butterfly</button>
+                <button onclick="downloadSound('Audio/Act_1/TME_Act1 Edit 1 Export 1 Butterf_NoMagic.wav')">Download</button>                
+                <div class="volume-control">
+                    <span>-</span>
+                    <input type="range" min="0" max="1" step="0.01" value="0"
+                           class="volume-slider" data-row="row1" data-sound="Act1_Butterfly_NoMagic" data-type="volume"
+                           oninput="updateVolume('row1', 'Act1_Butterfly_NoMagic', this.value)">
+                    <span>+</span>
+                </div>
+                <div class="pan-control">
+                    <span>L</span>
+                    <input type="range" min="-1" max="1" step="0.01" value="0"
+                    class="pan-slider" data-row="row1" data-sound="Act1_Butterfly_NoMagic" data-type="pan"
+                    oninput="updatePan('row1', 'Act1_Butterfly_NoMagic', this.value)">
+                    <span>R</span>
+                </div>                
+            </div><div class="sound-container"> <!-- Rasande Cement 5 -->
+                <button onclick="toggleSound('row1', 'Act1_Butterfly_NoMagic')">Butterfly</button>
+                <button onclick="downloadSound('Audio/Act_1/TME_Act1 Edit 1 Export 1 Butterf_NoMagic.wav')">Download</button>                
+                <div class="volume-control">
+                    <span>-</span>
+                    <input type="range" min="0" max="1" step="0.01" value="0"
+                           class="volume-slider" data-row="row1" data-sound="Act1_Butterfly_NoMagic" data-type="volume"
+                           oninput="updateVolume('row1', 'Act1_Butterfly_NoMagic', this.value)">
+                    <span>+</span>
+                </div>
+                <div class="pan-control">
+                    <span>L</span>
+                    <input type="range" min="-1" max="1" step="0.01" value="0"
+                    class="pan-slider" data-row="row1" data-sound="Act1_Butterfly_NoMagic" data-type="pan"
+                    oninput="updatePan('row1', 'Act1_Butterfly_NoMagic', this.value)">
+                    <span>R</span>
+                </div>                
+            </div>
+            <div class="sound-container"> <!-- Portalen öppnas -->
+                <button onclick="toggleSound('row1', 'Act1_Butterfly_NoMagic')">Butterfly</button>
+                <button onclick="downloadSound('Audio/Act_1/TME_Act1 Edit 1 Export 1 Butterf_NoMagic.wav')">Download</button>                
+                <div class="volume-control">
+                    <span>-</span>
+                    <input type="range" min="0" max="1" step="0.01" value="0"
+                           class="volume-slider" data-row="row1" data-sound="Act1_Butterfly_NoMagic" data-type="volume"
+                           oninput="updateVolume('row1', 'Act1_Butterfly_NoMagic', this.value)">
+                    <span>+</span>
+                </div>
+                <div class="pan-control">
+                    <span>L</span>
+                    <input type="range" min="-1" max="1" step="0.01" value="0"
+                    class="pan-slider" data-row="row1" data-sound="Act1_Butterfly_NoMagic" data-type="pan"
+                    oninput="updatePan('row1', 'Act1_Butterfly_NoMagic', this.value)">
+                    <span>R</span>
+                </div>                
+            </div>
+            
         </div>
         <div>
             <h2>ACT 3 
