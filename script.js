@@ -18,6 +18,13 @@ const soundRows = {
         sound2_3: { audio: new Audio("Audio/Elderly_INSTRUMENTS.mp3"), gainNode: null },
         sound2_4: { audio: new Audio("Audio/Elderly_MELODY.mp3"), gainNode: null }
     },
+    row2_fx: {
+        Act2_BuildingClash: { audio: new Audio("Audio/Act_2/TME_Act2 Edit 1 Export 1 StrukturernaKrockar.wav"), gainNode: null, busy: false },
+        Act1_Building_Rise2: { audio: new Audio("Audio/FX/TME_Act1 Edit 1 Export 1 BuildingRise_2.wav"), gainNode: null, busy: false },
+        Act1_Window_Grow: { audio: new Audio("Audio/FX/TME_Act1 Edit 1 Export 1 WindowGrow.wav"), gainNode: null, busy: false },
+        Act1_Window_Shatter: { audio: new Audio("Audio/FX/TME_Act1 Edit 1 Export 1 WindowShatter.wav"), gainNode: null, busy: false },
+        sound_fx_5: { audio: new Audio("Audio/FX/TME_Act1 Edit 1 Export 1 EFFECT_Breathing Render 0.mp3"), gainNode: null, busy: false }
+    },
     row3: {
         sound3_1: { audio: new Audio("Audio/ACT3_Wind.mp3"), gainNode: null },
         sound3_2: { audio: new Audio("Audio/ACT3_Fire.mp3"), gainNode: null },
@@ -147,7 +154,7 @@ function toggleSound(rowId, soundId) {
         );
 
         if (audio && button) {
-            const isOneShot = rowId === "row1_fx";
+            const isOneShot = rowId === "row1_fx" || rowId === "row2_fx";
 
             if (!sound.gainNode || !sound.pannerNode) {
                 const audioContext = new (window.AudioContext || window.webkitAudioContext)();
