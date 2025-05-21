@@ -482,21 +482,233 @@ span {
         </div>
     </div>
 </div>
-        <div>
-            <h2>ACT 3 
-                <button id="btn-row3" onclick="handleRowButton('row3')">Start</button>
-                <button onclick="stopAllInRow('row3')">Stop All</button>
-              </h2>
-            <button onclick="toggleSound('row3', 'sound3_1')">Toggle Sound 9</button>
-            <button onclick="downloadSound('Audio/Act_3/TME_Act3 Edit 1 Export 1 Sound_9 Render 0.mp3')">Download</button>
-            <button onclick="toggleSound('row3', 'sound3_2')">Toggle Sound 10</button>
-            <button onclick="downloadSound('Audio/Act_3/TME_Act3 Edit 1 Export 1 Sound_10 Render 0.mp3')">Download</button>
-            <button onclick="toggleSound('row3', 'sound3_3')">Toggle Sound 11</button>
-            <button onclick="downloadSound('Audio/Act_3/TME_Act3 Edit 1 Export 1 Sound_11 Render 0.mp3')">Download</button>
-            <button onclick="toggleSound('row3', 'sound3_4')">Toggle Sound 12</button>
-            <button onclick="downloadSound('Audio/Act_3/TME_Act3 Edit 1 Export 1 Sound_12 Render 0.mp3')">Download</button>
+    <div>
+            <h2>ACT 3 One-shots</h2>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center;"> <!-- Parent container for alignment -->
+                <div class="sound-container"> <!-- Små Fjärilsvingar -->
+                    <button class="button-primary" onclick="toggleSound('row3_fx', 'Act3_ButterflyWingsSmall')">Small BF-wings</button>
+                    <button class="button-primary" onclick="downloadSound('Audio/Act_2/TME_Act2 Edit 1 Export 1 StrukturernaKrockar.wav')">Download</button>
+                        <div class="volume-control">
+                            <span>-</span>
+                            <input type="range" min="0" max="1" step="0.01" value="1"
+                            class="volume-slider" data-row="row3_fx" data-sound="Act3_ButterflyWingsSmall" data-type="volume"
+                            oninput="updateVolume('row3_fx', 'Act3_ButterflyWingsSmall', this.value)">
+                            <span>+</span>
+                        </div>
+                        <div class="pan-control">
+                            <span>L</span>
+                            <input type="range" min="-1" max="1" step="0.01" value="0"
+                                class="pan-slider" data-row="row3_fx" data-sound="Act3_ButterflyWingsSmall" data-type="pan"
+                                oninput="updatePan('row3_fx', 'Act3_ButterflyWingsSmall', this.value)">
+                            <span>R</span>
+                        </div>
+                </div>
+                <div class="sound-container"> <!-- Spelljud: Magi -->
+                    <button class="button-primary" onclick="toggleSound('row3_fx', 'Act3_MagicalGameSound')">Magical Sound</button>
+                    <button class="button-primary" onclick="downloadSound('Audio/Act_2/TME_Act2 Edit 1 Export 1 StrukturernaKrockar.wav')">Download</button>
+                        <div class="volume-control">
+                            <span>-</span>
+                            <input type="range" min="0" max="1" step="0.01" value="1"
+                            class="volume-slider" data-row="row3_fx" data-sound="Act3_MagicalGameSound" data-type="volume"
+                            oninput="updateVolume('row3_fx', 'Act3_MagicalGameSound', this.value)">
+                            <span>+</span>
+                        </div>
+                        <div class="pan-control">
+                            <span>L</span>
+                            <input type="range" min="-1" max="1" step="0.01" value="0"
+                                class="pan-slider" data-row="row3_fx" data-sound="Act3_MagicalGameSound" data-type="pan"
+                                oninput="updatePan('row3_fx', 'Act3_MagicalGameSound', this.value)">
+                            <span>R</span>
+                        </div>
+                </div>
+            </div>  
+        </div>
+<div>
+    <h5>Returning Nature</h5>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center;"> <!-- Parent container for alignment -->
+        <div class="sound-container"> <!-- Blomma 1 -->
+            <button class="button-secondary" onclick="toggleSound('row3_fx', 'Act3_GrowingFlower1')">Fl1</button>
+            <div class="volume-control">
+                <span>-</span>
+                <input type="range" min="0" max="1" step="0.01" value="1"
+                       class="volume-slider" data-row="row3_fx" data-sound="Act3_GrowingFlower1" data-type="volume"
+                       oninput="updateVolume('row3_fx', 'Act3_GrowingFlower1', this.value)">
+                <span>+</span>
+            </div>
+            <div class="pan-control">
+                <span>L</span>
+                <input type="range" min="-1" max="1" step="0.01" value="0"
+                       class="pan-slider" data-row="row3_fx" data-sound="Act3_GrowingFlower1" data-type="pan"
+                       oninput="updatePan('row3_fx', 'Act3_GrowingFlower1', this.value)">
+                <span>R</span>
+            </div>
+        </div>
+        <div class="sound-container"> <!-- Blomma 2 -->
+            <button class="button-secondary" onclick="toggleSound('row3_fx', 'Act3_GrowingFlower2')">Fl2</button>
+            <div class="volume-control">
+                <span>-</span>
+                <input type="range" min="0" max="1" step="0.01" value="1"
+                       class="volume-slider" data-row="row3_fx" data-sound="Act3_GrowingFlower2" data-type="volume"
+                       oninput="updateVolume('row3_fx', 'Act3_GrowingFlower2', this.value)">
+                <span>+</span>
+            </div>
+            <div class="pan-control">
+                <span>L</span>
+                <input type="range" min="-1" max="1" step="0.01" value="0"
+                       class="pan-slider" data-row="row3_fx" data-sound="Act3_GrowingFlower2" data-type="pan"
+                       oninput="updatePan('row3_fx', 'Act3_GrowingFlower2', this.value)">
+                <span>R</span>
+            </div>
+        </div>
+        <div class="sound-container"> <!-- Blomma 3 -->
+            <button class="button-secondary" onclick="toggleSound('row3_fx', 'Act3_GrowingFlower3')">Fl3</button>
+            <div class="volume-control">
+                <span>-</span>
+                <input type="range" min="0" max="1" step="0.01" value="1"
+                       class="volume-slider" data-row="row3_fx" data-sound="Act3_GrowingFlower3" data-type="volume"
+                       oninput="updateVolume('row3_fx', 'Act3_GrowingFlower3', this.value)">
+                <span>+</span>
+            </div>
+            <div class="pan-control">
+                <span>L</span>
+                <input type="range" min="-1" max="1" step="0.01" value="0"
+                       class="pan-slider" data-row="row3_fx" data-sound="Act3_GrowingFlower3" data-type="pan"
+                       oninput="updatePan('row3_fx', 'Act3_GrowingFlower3', this.value)">
+                <span>R</span>
+            </div>
+        </div>
+        <div class="sound-container"> <!-- Träd 1 -->
+            <button class="button-secondary" onclick="toggleSound('row3_fx', 'Act3_GrowingTree1')">Tr1</button>
+            <div class="volume-control">
+                <span>-</span>
+                <input type="range" min="0" max="1" step="0.01" value="1"
+                       class="volume-slider" data-row="row3_fx" data-sound="Act3_GrowingTree1" data-type="volume"
+                       oninput="updateVolume('row3_fx', 'Act3_GrowingTree1', this.value)">
+                <span>+</span>
+            </div>
+            <div class="pan-control">
+                <span>L</span>
+                <input type="range" min="-1" max="1" step="0.01" value="0"
+                       class="pan-slider" data-row="row3_fx" data-sound="Act3_GrowingTree1" data-type="pan"
+                       oninput="updatePan('row3_fx', 'Act3_GrowingTree1', this.value)">
+                <span>R</span>
+            </div>
+        </div>
+        <div class="sound-container"> <!-- Träd 2 -->
+            <button class="button-secondary" onclick="toggleSound('row3_fx', 'Act3_GrowingTree2')">Tr2</button>
+            <div class="volume-control">
+                <span>-</span>
+                <input type="range" min="0" max="1" step="0.01" value="1"
+                       class="volume-slider" data-row="row3_fx" data-sound="Act3_GrowingTree2" data-type="volume"
+                       oninput="updateVolume('row3_fx', 'Act3_GrowingTree2', this.value)">
+                <span>+</span>
+            </div>
+            <div class="pan-control">
+                <span>L</span>
+                <input type="range" min="-1" max="1" step="0.01" value="0"
+                       class="pan-slider" data-row="row3_fx" data-sound="Act3_GrowingTree2" data-type="pan"
+                       oninput="updatePan('row3_fx', 'Act3_GrowingTree2', this.value)">
+                <span>R</span>
+            </div>
+        </div>
+        <div class="sound-container"> <!-- Natur -->
+            <button class="button-secondary" onclick="toggleSound('row3_fx', 'Act3_GrowingOther1')">Nat</button>
+            <div class="volume-control">
+                <span>-</span>
+                <input type="range" min="0" max="1" step="0.01" value="1"
+                       class="volume-slider" data-row="row3_fx" data-sound="Act3_GrowingOther1" data-type="volume"
+                       oninput="updateVolume('row3_fx', 'Act3_GrowingOther1', this.value)">
+                <span>+</span>
+            </div>
+            <div class="pan-control">
+                <span>L</span>
+                <input type="range" min="-1" max="1" step="0.01" value="0"
+                       class="pan-slider" data-row="row3_fx" data-sound="Act3_GrowingOther1" data-type="pan"
+                       oninput="updatePan('row3_fx', 'Act3_GrowingOther1', this.value)">
+                <span>R</span>
+            </div>
+        </div>
+        <div class="sound-container"> <!-- DownloadKnapp -->
+            <button class="button-secondary" onclick="downloadSound('Audio/Act_3/TME_Act3_VäxterVäxer.zip')">Download All</button>
         </div>
     </div>
+</div>
+<div>
+    <h5>Returning Colors</h5>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center;"> <!-- Parent container for alignment -->
+        <div class="sound-container"> <!-- FärgÅter Lång 1 -->
+            <button class="button-secondary" onclick="toggleSound('row3_fx', 'Act3_ColorLong1')">RC-Long1</button>
+            <div class="volume-control">
+                <span>-</span>
+                <input type="range" min="0" max="1" step="0.01" value="1"
+                       class="volume-slider" data-row="row3_fx" data-sound="Act3_ColorLong1" data-type="volume"
+                       oninput="updateVolume('row3_fx', 'Act3_ColorLong1', this.value)">
+                <span>+</span>
+            </div>
+            <div class="pan-control">
+                <span>L</span>
+                <input type="range" min="-1" max="1" step="0.01" value="0"
+                       class="pan-slider" data-row="row3_fx" data-sound="Act3_ColorLong1" data-type="pan"
+                       oninput="updatePan('row3_fx', 'Act3_ColorLong1', this.value)">
+                <span>R</span>
+            </div>
+        </div>
+        <div class="sound-container"> <!-- FärgÅter Lång 2 -->
+            <button class="button-secondary" onclick="toggleSound('row3_fx', 'Act3_ColorLong2')">RC-Long2</button>
+            <div class="volume-control">
+                <span>-</span>
+                <input type="range" min="0" max="1" step="0.01" value="1"
+                       class="volume-slider" data-row="row3_fx" data-sound="Act3_ColorLong2" data-type="volume"
+                       oninput="updateVolume('row3_fx', 'Act3_ColorLong2', this.value)">
+                <span>+</span>
+            </div>
+            <div class="pan-control">
+                <span>L</span>
+                <input type="range" min="-1" max="1" step="0.01" value="0"
+                       class="pan-slider" data-row="row3_fx" data-sound="Act3_ColorLong2" data-type="pan"
+                       oninput="updatePan('row3_fx', 'Act3_ColorLong2', this.value)">
+                <span>R</span>
+            </div>
+        </div>
+        <div class="sound-container"> <!-- FärgÅter Kort 1 -->
+            <button class="button-secondary" onclick="toggleSound('row3_fx', 'Act3_ColorShort1')">RC-Short1</button>
+            <div class="volume-control">
+                <span>-</span>
+                <input type="range" min="0" max="1" step="0.01" value="1"
+                       class="volume-slider" data-row="row3_fx" data-sound="Act3_ColorShort1" data-type="volume"
+                       oninput="updateVolume('row3_fx', 'Act3_ColorShort1', this.value)">
+                <span>+</span>
+            </div>
+            <div class="pan-control">
+                <span>L</span>
+                <input type="range" min="-1" max="1" step="0.01" value="0"
+                       class="pan-slider" data-row="row3_fx" data-sound="Act3_ColorShort1" data-type="pan"
+                       oninput="updatePan('row3_fx', 'Act3_ColorShort1', this.value)">
+                <span>R</span>
+            </div>
+        </div>
+        <div class="sound-container"> <!-- FärgÅter Kort 2 -->
+            <button class="button-secondary" onclick="toggleSound('row3_fx', 'Act3_ColorShort2')">RC-Short2</button>
+            <div class="volume-control">
+                <span>-</span>
+                <input type="range" min="0" max="1" step="0.01" value="1"
+                       class="volume-slider" data-row="row3_fx" data-sound="Act3_ColorShort2" data-type="volume"
+                       oninput="updateVolume('row3_fx', 'Act3_ColorShort2', this.value)">
+                <span>+</span>
+            </div>
+            <div class="pan-control">
+                <span>L</span>
+                <input type="range" min="-1" max="1" step="0.01" value="0"
+                       class="pan-slider" data-row="row3_fx" data-sound="Act3_ColorShort2" data-type="pan"
+                       oninput="updatePan('row3_fx', 'Act3_ColorShort2', this.value)">
+                <span>R</span>
+            </div>
+        </div>
+        <div class="sound-container"> <!-- DownloadKnapp -->
+            <button class="button-secondary" onclick="downloadSound('Audio/Act_3/TME_Act3_FärgÅterkommer.zip')">Download All</button>
+        </div>
+    </div>
+</div>
 
     <script src="script.js"></script>
 

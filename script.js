@@ -36,12 +36,19 @@ const soundRows = {
         Act1_Window_Shatter: { audio: new Audio("Audio/FX/TME_Act1 Edit 1 Export 1 WindowShatter.wav"), gainNode: null, busy: false },
         sound_fx_5: { audio: new Audio("Audio/FX/TME_Act1 Edit 1 Export 1 EFFECT_Breathing Render 0.mp3"), gainNode: null, busy: false }
     },
-    row3: {
-        sound3_1: { audio: new Audio("Audio/ACT3_Wind.mp3"), gainNode: null },
-        sound3_2: { audio: new Audio("Audio/ACT3_Fire.mp3"), gainNode: null },
-        sound3_3: { audio: new Audio("Audio/ACT3_Melody.mp3"), gainNode: null },
-        sound3_4: { audio: new Audio("Audio/ACT3_Animals.mp3"), gainNode: null },
-        sound3_5: { audio: new Audio("Audio/ACT3_Butterfly.mp3"), gainNode: null }
+    row3_fx: {
+        Act3_ButterflyWingsSmall: { audio: new Audio("Audio/Act_3/TME_Act1 Edit 1 Export 1 Små_Fjärilsvingar Render 0.wav"), gainNode: null },
+        Act3_MagicalGameSound: { audio: new Audio("Audio/Act_3/TME_Act1 Edit 1 Export 1 Spelljud_Magiskt Render 0.wav"), gainNode: null },
+        Act3_ColorLong1: { audio: new Audio("Audio/Act_3/TME_Act1 Edit 1 Export 1 ÅterFärg_Lång_1 Render 0.wav"), gainNode: null },
+        Act3_ColorLong2: { audio: new Audio("Audio/Act_3/TME_Act1 Edit 1 Export 1 ÅterFärg_Lång_2 Render 0.wav"), gainNode: null },
+        Act3_ColorShort1: { audio: new Audio("Audio/Act_3/TME_Act1 Edit 1 Export 1 ÅterFärg_Kort_1 Render 0.wav"), gainNode: null },
+        Act3_ColorShort2: { audio: new Audio("Audio/Act_3/TME_Act1 Edit 1 Export 1 ÅterFärg_Kort_2 Render 0.wav"), gainNode: null },
+        Act3_GrowingFlower1: { audio: new Audio("Audio/Act_3/TME_Act1 Edit 1 Export 1 BlommaVäxer_1 Render 0.wav"), gainNode: null },
+        Act3_GrowingFlower2: { audio: new Audio("Audio/Act_3/TME_Act1 Edit 1 Export 1 BlommaVäxer_2 Render 0.wav"), gainNode: null },
+        Act3_GrowingFlower3: { audio: new Audio("Audio/Act_3/TME_Act1 Edit 1 Export 1 BlommaVäxer_3 Render 0.wav"), gainNode: null },
+        Act3_GrowingTree1: { audio: new Audio("Audio/Act_3/TME_Act1 Edit 1 Export 1 TrädVäxer_1 Render 0.wav"), gainNode: null },
+        Act3_GrowingTree2: { audio: new Audio("Audio/Act_3/TME_Act1 Edit 1 Export 1 TrädVäxer_2 Render 0.wav"), gainNode: null },
+        Act3_GrowingOther1: { audio: new Audio("Audio/Act_3/TME_Act1 Edit 1 Export 1 VäxterVäxer Render 0.wav"), gainNode: null }
     }
 };
 
@@ -165,7 +172,7 @@ function toggleSound(rowId, soundId) {
         );
 
         if (audio && button) {
-            const isOneShot = rowId === "row1_fx" || rowId === "row2_fx";
+            const isOneShot = rowId === "row1_fx" || rowId === "row2_fx" || rowId === "row3_fx";
 
             if (!sound.gainNode || !sound.pannerNode) {
                 const audioContext = new (window.AudioContext || window.webkitAudioContext)();
